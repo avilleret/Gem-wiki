@@ -78,7 +78,7 @@ Then you have a folder containing all the sources files. Please read also `doc/C
 In the `Gem\build\win-vce2010`[4](#sdfootnote4sym) folder, you will find a `Gem.sln` file.
 Some conversion may be needed if you are using another version of Visual C++.
 
-Once the project imported, open the _Properties manager[5](#sdfootnote5sym)_ window and find the Puredata
+Once the project imported, open the [_Properties manager_](#ftgl-and-freetype) window and find the Puredata
 configuration. Open it and adjust the PD_DIR macro under the _User macro_ page to point to your Pd folder.
 
 In the *pthread properties sheet* change the PTHREAD_DIR and the PD_DIR macro to point to the `pthread` directory (for me it's `C:\Users\win7\Bibliothèques\pthreads-w32-2-9-1-release\Pre-built.2`)
