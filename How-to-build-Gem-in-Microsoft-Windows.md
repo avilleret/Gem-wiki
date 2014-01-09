@@ -75,10 +75,11 @@ Then you have a folder containing all the sources files. Please read also `doc/C
 
 ## Configuring Gem solution in Visual C++
 
-In the `Gem\build\win-vce2010`[4](#sdfootnote4sym) folder, you will find a `Gem.sln` file.
+In the `Gem\build\win-vce2010` (**e** is for *E*xpress, not for *E*mbedded.
+) folder, you will find a `Gem.sln` file.
 Some conversion may be needed if you are using another version of Visual C++.
 
-Once the project imported, open the [_Properties manager_](#ftgl-and-freetype) window and find the Puredata
+Once the project imported, open the *Properties manager* window and find the Puredata
 configuration. Open it and adjust the PD_DIR macro under the _User macro_ page to point to your Pd folder.
 
 In the *pthread properties sheet* change the PTHREAD_DIR and the PD_DIR macro to point to the `pthread` directory (for me it's `C:\Users\win7\Bibliothèques\pthreads-w32-2-9-1-release\Pre-built.2`)
@@ -135,9 +136,3 @@ You need the ARToolkit library for Windows:
 [http://sourceforge.net/projects/artoolkit/files/artoolkit/](http://sourceforge.net/projects/artoolkit/files/artoolkit/).
 The Windows binary release contains all what you need. Adjust the
 `ARTOOLKIT_DIR` variable in *ARToolkit properties sheet*.
-
-[4](#sdfootnote4anc)The
-	**e** is for *E*xpress, not for *E*mbedded.
-
-[5](#sdfootnote5anc)
-	See FTGL and Freetype on page 1 if you can't find it.
