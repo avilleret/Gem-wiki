@@ -45,8 +45,7 @@ You also need FTGL and Freetype libraries.
 
 #### FTGL
 1. Download FTGL from [http://sourceforge.net/projects/ftgl/](http://sourceforge.net/projects/ftgl/) 
-2. Extract the tar.gz file (you may need a good archive extractor to do that, 7zip is a good candidate
-[http://www.7-zip.org/](http://www.7-zip.org/))	- again in a place you know and you may remember easily
+2. Extract the tar.gz file (you may need a good archive extractor to do that, [7zip](http://www.7-zip.org/) is a good candidate) - again in a place you know and you may remember easily
 3. Then open the `ftgl-2.1.3~rc5\msvc\vc8\ftgl_static.vcproj` file in Visual C++.
 If you are not using VC8 the project should be converted automatically and please follow the wizard. You could also choose some project under other folder depending on your version.
 4. Then generate the solution (you may need to save the solution first). And you will get a `ftgl_static.lib` file under the `msvc/build` folder. 
@@ -83,10 +82,10 @@ Some conversion may be needed if you are using another version of Visual C++.
 Once the project imported, open the _Properties manager[5](#sdfootnote5sym)_ window and find the Puredata
 configuration. Open it and adjust the PD_DIR macro under the _User macro_ page to point to your Pd folder.
 
-In the `pthread` properties sheet change the PTHREAD_DIR and the PD_DIR macro to point to the `pthread` directory (for me it's `C:\Users\win7\Bibliothèques\pthreads-w32-2-9-1-release\Pre-built.2`)
+In the *pthread properties sheet* change the PTHREAD_DIR and the PD_DIR macro to point to the `pthread` directory (for me it's `C:\Users\win7\Bibliothèques\pthreads-w32-2-9-1-release\Pre-built.2`)
 and to the `pd` directory.
 
-In the `FTGL` properties sheet, under the `FTGL Release` or the `FTGL Debug` configuration,
+In the *FTGL properties sheet*, under the `FTGL Release` or the `FTGL Debug` configuration,
 adjust the `FREETYPE` and the `FTGL` paths (e.g. `C:\Users\win7\Bibliothèques\freetype-2.3.5-1-lib` and `C:\Users\win7\Bibliothèques\ftgl-2.1.3~rc5`).
 
 Now you will be able to generate at least the Gem project.
@@ -107,7 +106,7 @@ Some files lack in the one that comes with Visual C++ 2010 Express.
 You need the Windows Driver Kit for ATL support : [http://msdn.microsoft.com/en-us/windows/hardware/hh852365](http://msdn.microsoft.com/en-us/windows/hardware/hh852365).
 Get the one compatible with your IDE (7.1,0 for me)
 
-Update the macros in the DirectShow properties sheet.
+Update the macros in the *DirectShow properties sheet*.
 
 ### filmQT – play films with QuickTime
 
@@ -122,21 +121,21 @@ If you install it in the default location ("`C:\Program Files`") you don't need 
 You need libjpeg:
 [http://gnuwin32.sourceforge.net/packages/jpeg.htm](http://gnuwin32.sourceforge.net/packages/jpeg.htm)
 
-Download the _Developer files_ and extract it. Adjust the `LIBJPEG_DIR` macro in the `JPEG`
-properties sheet to point where you extracted the files (e.g. `C:\Users\win7\Bibliothèques\jpeg-6b-4-lib`).
+Download the _Developer files_ and extract it. Adjust the `LIBJPEG_DIR` macro in the *JPEG
+properties sheet* to point where you extracted the files (e.g. `C:\Users\win7\Bibliothèques\jpeg-6b-4-lib`).
 
 ### imageTIFF – load still image with libtiff
 
 You need the libtiff for Windows. Choose the _Developer files_
 here: [http://gnuwin32.sourceforge.net/packages/tiff.htm](http://gnuwin32.sourceforge.net/packages/tiff.htm).
-Then adjust the `LIBTIFF_DIR` macro in the `TIFF` properties sheet.
+Then adjust the `LIBTIFF_DIR` macro in the *TIFF properties sheet*.
 
 ### pix_artoolkit – detect ARToolkit tag
 
 You need the ARToolkit library for Windows:
 [http://sourceforge.net/projects/artoolkit/files/artoolkit/](http://sourceforge.net/projects/artoolkit/files/artoolkit/).
 The Windows binary release contains all what you need. Adjust the
-`ARTOOLKIT_DIR` variable in `ARToolkit` properties sheet.
+`ARTOOLKIT_DIR` variable in *ARToolkit properties sheet*.
 
 [4](#sdfootnote4anc)The
 	**e** is for *E*xpress, not for *E*mbedded.
