@@ -63,14 +63,13 @@ or
 If you plan to make some improvement on Gem (and I encourage you to do that) then it's better to clone the Git repository. But you need [git for windows](http://msysgit.github.io/)
 to do that. Here I [quote IOhannes](http://lists.puredata.info/pipermail/gem-dev/2013-09/006564.html)  who explains his preferred way to contribute (and this is not Windows specific) :
 
-- go to [http://github.com/](http://github.com/) and get yourself an account (e.g. "rybn"),  then log in.  
-- go to [http://github.com/umlaeute/Gem](http://github.com/umlaeute/Gem), and click on the "Fork" button  
-in the upper-right corner.  
-- this will fork the repository into [http://github.com/rybn/Gem](http://github.com/rybn/Gem), go  there and follow the instructions to clone the repository to your local machine.  
-- do work (add new abstractions/,...) and commit them to your local copy  
-- push them to github  
-- go back to [http://github.com/rybn/Gem](http://github.com/rybn/Gem) and click on "Pull Request" and follow the instructions there.  
-- I will get a notification that i should merge in your changes and can do so (after reviewing them) 
+> - go to [http://github.com/](http://github.com/) and get yourself an account (e.g. "rybn"),  then log in.  
+> - go to [http://github.com/umlaeute/Gem](http://github.com/umlaeute/Gem), and click on the "Fork" button in the upper-right corner.  
+> - this will fork the repository into [http://github.com/rybn/Gem](http://github.com/rybn/Gem), go  there and follow the instructions to clone the repository to your local machine.  
+> - do work (add new abstractions/,...) and commit them to your local copy  
+> - push them to github  
+> - go back to [http://github.com/rybn/Gem](http://github.com/rybn/Gem) and click on "Pull Request" and follow the instructions there.  
+> - I will get a notification that i should merge in your changes and can do so (after reviewing them) 
 
 Then you have a folder containing all the sources files. Please read also `doc/CodingStyle.txt` before making changes.
 
