@@ -2,80 +2,67 @@ How to build Gem in Microsoft Windows
 
 ## Preambule
 
-As I'm French, I have a French version of Visual C++ 2008 Express. I translated menu titles here myself and the translation may differ from the official one. I apologized for that.
+This document was originally written with a French version of Visual C++ 2008 Express.
+Menus and labels in this document might be translated from this version, and thus differ from the original ones.
 
-## Requirement
+## Requirements
 
 ### Visual C++
 
-You need a Visual C++ environment to build Gem. You can download and install Visual C++ 2010 Express. A serial number is needed but you can get one for free from Microsoft.
+You need a Visual C++ environment to build Gem.
+You can download and install Visual C++ 2010 Express.
+A serial number is needed but you can get one for free from Microsoft.
 
-NOTE&nbsp;: In Visual C++ you will find the _Properties manager_ (_Gestionnaire de propriétés_) under the View (Affichage) menu. If you have the Express edition, it is hidden...
-Click on _Tools &amp;gt; Parameters &amp;gt; Advanced parameters_
-(_Outils &amp;gt; Paramètres &amp;gt; Paramètres avancés_) to see it.
+NOTE: In Visual C++ you will find the *Properties manager* (*Gestionnaire de propriétés*) under the *View* (*Affichage*) menu.
 
-### Puredata
+If you have the Express edition, it is hidden...Click on *Tools -> Parameters -> Advanced parameters* (*Outils -> Paramètres -> Paramètres avancés*) to see it.
 
-You need the puredata sources to build Gem, the Vanilla or Extended version.
+### Pure data
+
+You need the Pure data sources to build Gem, either the Vanilla or Extended version.
 The easiest way is to download a zip for Windows from [http://puredata.info/downloads](http://puredata.info/downloads).
 Then unpack it.
 
 ### Pthread
 
-Download the latest release from here :
+Download the latest release from here:
 [http://sourceforge.net/projects/pthreads4w/](http://sourceforge.net/projects/pthreads4w/)
 and unpack it.
 
 ### FTGL and Freetype
-
 You also need FTGL and Freetype libraries.
 
-1. Freetype 
-    1. Unfortunately, Freetype 2.3.5 has some linking
-		issues. So I used the latest version available 2.5.0, but there is no binary.
-                Here is how to build it yourself. 
-    2. Download
-		freetype-2.5.0.tar.gz[1](#sdfootnote1sym)
-		or something like that from [http://www.freetype.org/download.html](http://www.freetype.org/download.html).
-		 
-    3. Extract the zip
-		file in a place you know and you may remember easily (e.g. I put it in : `C:\Users\win7\Bibliothèques\freetype-2.5.0\`)
-    4. Open the solution which fits best your environment (for Windows XP 32bit	and Visual C++ 2010 Express it's `builds\win32\vc2010\freetype.sln`) 
-    5. Select the `Release Multithreaded` and `Win32` configurations then hit <kbd>F7</kbd>
-		to generate the solution. 
-    6. You should have a `freetype250MT.lib` under `objs\win32\vc2010` (or something else somewhere
-		under the `objs` folder depending on your configuration). 
-    7. For the next steps, it is useful to setup a global environment variable called  `FREETYPE` and pointing to the root of the freetype directory (where `objs` and `include` folders are). This is under the *advanced system properties* of Windows, its location depends on the Windows version. 
+#### Freetype 
+1. Unfortunately, Freetype 2.3.5 has some linking issues.
+ So I used the latest version available 2.5.0, but there is no binary.
+ Here is how to build it yourself. 
+2. Download [freetype-2.5.0.tar.gz](http://download.savannah.gnu.org/releases/freetype/freetype-2.5.0.tar.gz) or something like that from [http://www.freetype.org/download.html](http://www.freetype.org/download.html).
+3. Extract the zip file in a place you know and you may remember easily (e.g. I put it in : `C:\Users\win7\Bibliothèques\freetype-2.5.0\`)
+4. Open the solution which fits best your environment (for Windows XP 32bit and Visual C++ 2010 Express it's `builds\win32\vc2010\freetype.sln`) 
+5. Select the `Release Multithreaded` and `Win32` configurations then hit <kbd>F7</kbd>	to generate the solution. 
+6. You should have a `freetype250MT.lib` under `objs\win32\vc2010` (or something else somewhere under the `objs` folder depending on your configuration). 
+7. For the next steps, it is useful to setup a global environment variable called `FREETYPE` and pointing to the root of the freetype directory (where `objs` and `include` folders are). This is under the *advanced system properties* of Windows, its exact location depends on your Windows version. 
 
-2. FTGL 
-    1. Download FTGL from
-		[http://sourceforge.net/projects/ftgl/](http://sourceforge.net/projects/ftgl/) 
-    2. Extract the tar.gz file (you may need a
-		good archive extractor to do that, 7zip is a good candidate
-		[http://www.7-zip.org/](http://www.7-zip.org/))
-		(again in a place you know and you may
-		remember easily) 
-    3. Then open the `ftgl-2.1.3~rc5\msvc\vc8\ftgl_static.vcproj` file in Visual C++.
-         If you are not using VC8 the project should be converted automatically and please follow the wizard. You could also choose some project under other folder depending on your version.
-
-    4. Then generate the solution (you may need to save the solution first). And you will get a *ftgl_static.lib* file under the `msvc/build` folder. 
+#### FTGL
+1. Download FTGL from [http://sourceforge.net/projects/ftgl/](http://sourceforge.net/projects/ftgl/) 
+2. Extract the tar.gz file (you may need a good archive extractor to do that, 7zip is a good candidate
+[http://www.7-zip.org/](http://www.7-zip.org/))	- again in a place you know and you may remember easily
+3. Then open the `ftgl-2.1.3~rc5\msvc\vc8\ftgl_static.vcproj` file in Visual C++.
+If you are not using VC8 the project should be converted automatically and please follow the wizard. You could also choose some project under other folder depending on your version.
+4. Then generate the solution (you may need to save the solution first). And you will get a `ftgl_static.lib` file under the `msvc/build` folder. 
 
 ## Getting GEM sources
 
-If you just want to build the last version of Gem but
-you do not planned to make modifications in the code, let's get a
-tarball from sourceforge or github of a fresh snapshot.
+If you just want to build the last version of Gem but you do not planned to make modifications in the code, let's get a tarball from sourceforge or github of a fresh snapshot.
 
-“Download a zip” here :
-[https://github.com/umlaeute/Gem](https://github.com/umlaeute/Gem)  
+“Download a zip” here : [https://github.com/umlaeute/Gem](https://github.com/umlaeute/Gem)
+
 or
-“Download snapshot” here :
-[http://sourceforge.net/p/pd-gem/gem/ci/master/tree/](http://sourceforge.net/p/pd-gem/gem/ci/master/tree/)
 
-If you planned to make some improvement on Gem (and I
-encourage you to do that) then it's better to clone the Git
-repository. But you need git  for windows[2](#sdfootnote2sym)
-to do that. Here I quote IOhaness[3](#sdfootnote3sym) who explains his preferred way to contribute (and this is not Windows specific) :
+“Download snapshot” here : [http://sourceforge.net/p/pd-gem/gem/ci/master/tree/](http://sourceforge.net/p/pd-gem/gem/ci/master/tree/)
+
+If you plan to make some improvement on Gem (and I encourage you to do that) then it's better to clone the Git repository. But you need [git for windows](http://msysgit.github.io/)
+to do that. Here I [quote IOhannes](http://lists.puredata.info/pipermail/gem-dev/2013-09/006564.html)  who explains his preferred way to contribute (and this is not Windows specific) :
 
 - go to [http://github.com/](http://github.com/) and get yourself an account (e.g. "rybn"),  then log in.  
 - go to [http://github.com/umlaeute/Gem](http://github.com/umlaeute/Gem), and click on the "Fork" button  
@@ -151,16 +138,8 @@ You need the ARToolkit library for Windows:
 The Windows binary release contains all what you need. Adjust the
 `ARTOOLKIT_DIR` variable in `ARToolkit` properties sheet.
 
-[1](#sdfootnote1anc)[http://download.savannah.gnu.org/releases/freetype/freetype-2.5.0.tar.gz](http://download.savannah.gnu.org/releases/freetype/freetype-2.5.0.tar.gz)
-
-[2](#sdfootnote2anc)[http://msysgit.github.io/](http://msysgit.github.io/)
-
-[3](#sdfootnote3anc)The
-	original message is here :
-	[http://lists.puredata.info/pipermail/gem-dev/2013-09/006564.html](http://lists.puredata.info/pipermail/gem-dev/2013-09/006564.html)
-
 [4](#sdfootnote4anc)The
-	«&nbsp;e&nbsp;» is for Express, not for Embedded.
+	**e** is for *E*xpress, not for *E*mbedded.
 
 [5](#sdfootnote5anc)
 	See FTGL and Freetype on page 1 if you can't find it.
