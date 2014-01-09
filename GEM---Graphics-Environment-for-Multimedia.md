@@ -1,1 +1,0 @@
-[[How-to-build-Gem-in-Microsoft-Windows]]
