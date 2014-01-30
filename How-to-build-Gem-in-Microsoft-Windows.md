@@ -136,3 +136,11 @@ You need the ARToolkit library for Windows:
 [http://sourceforge.net/projects/artoolkit/files/artoolkit/](http://sourceforge.net/projects/artoolkit/files/artoolkit/).
 The Windows binary release contains all what you need. Adjust the
 `ARTOOLKIT_DIR` variable in *ARToolkit properties sheet*.
+
+### videoHALCON - grab image with the non-free Halcon library (GigE cameras)
+
+Download Halcon v10 library here : [http://www.halcon.com/halcon/download/](http://www.halcon.com/halcon/download/).
+
+Choose the *HALCON 10.0.4 full version for Windows XP / 2003 / Vista / 2008 / 7 for SSE2.*
+The HALCON installer sets the environment variable `HALCONROOT` thus there should be nothing to adjust in the properties sheet.
+
