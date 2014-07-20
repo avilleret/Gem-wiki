@@ -52,10 +52,10 @@ If you clone the git repository, you have to build the building tool yourself fr
 
 ### configure
 Then configure the building chain with :
-`./configure --enable-fat-binary=i386 --enable-multicontext`
+`./configure --without-libquicktime --without-ftgl --enable-multicontext --enable-fat-binary=i386`
 I use the `--enable-fat-binary=i386` flag to force 32 bit binary.
 The `--enable-multicontext` flag is experimental for now but needed to get a working `[gemwin]` pd-object.
-
+`--without-libquicktime` disable legacy QuickTime support, it's time to switch to AV Foundation.
 
 
 
