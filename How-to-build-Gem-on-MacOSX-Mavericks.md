@@ -31,7 +31,7 @@ So maybe 32-bit is a good choice at first.
 
 ### get Gem's sources
 
-`git clone git://pd-gem.git.sourceforge.net/gitroot/pd-gem/Gem`
+`git clone git://git.code.sf.net/p/pd-gem/gem`
 
 ### third party libs
 Gem has a plugin system wich adds lot's of functionalities depending on installed libraries.
