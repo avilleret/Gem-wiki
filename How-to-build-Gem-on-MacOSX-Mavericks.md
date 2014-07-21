@@ -66,5 +66,3 @@ then build with :
 ~~~~
 make
 ~~~~
-
-> Written with [StackEdit](https://stackedit.io/).
