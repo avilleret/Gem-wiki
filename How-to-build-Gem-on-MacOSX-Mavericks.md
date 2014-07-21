@@ -56,17 +56,15 @@ If you clone the git repository, you have to build the building tool yourself fr
 Then configure the building chain with :
 
 ~~~~
-./configure --enable-multicontext --enable-fat-binary=i386
+./configure --enable-fat-binary=i386
 ~~~~
 
 I use the `--enable-fat-binary=i386` flag to force 32 bit binary.
-The `--enable-multicontext` flag is experimental for now but needed to get a working `[gemwin]` pd-object.
-`--without-libquicktime` disable legacy QuickTime support, it's time to switch to AV Foundation.
 
-then bulid the whole with : 
+then build with : 
 
 ~~~~
-make CPPFLASG=`pkg-config --cflags freetyp2`
+make CPPFLAGS=`pkg-config --cflags freetype2`
 ~~~~
 
 `CPPFLASG=\`pkg-config --cflags freetyp2\`` is needed because `configure` script doesn't add `freetype` headers to include paths.
