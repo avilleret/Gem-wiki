@@ -64,13 +64,7 @@ I use the `--enable-fat-binary=i386` flag to force 32 bit binary.
 then build with : 
 
 ~~~~
-make CPPFLAGS=`pkg-config --cflags freetype2`
+make
 ~~~~
-
-`CPPFLASG=\`pkg-config --cflags freetyp2\`` is needed because `configure` script doesn't add `freetype` headers to include paths.
-See : https://github.com/umlaeute/Gem/issues/27
-
-
-
 
 > Written with [StackEdit](https://stackedit.io/).
