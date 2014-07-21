@@ -66,10 +66,10 @@ The `--enable-multicontext` flag is experimental for now but needed to get a wor
 then build the whole with :
 
 ~~~~
-make CPPFLAGS=`pkg-config --cflags freetype2`
+make CPPFLAGS=$(pkg-config --cflags freetype2)
 ~~~~
 
-`CPPFLAGS=\`pkg-config --cflags freetype2\`` is needed because `configure` script doesn't add `freetype` headers to include paths.
+`CPPFLAGS=$(pkg-config --cflags freetype2)` is needed because `configure` script doesn't add `freetype` headers to include paths.
 See : https://github.com/umlaeute/Gem/issues/27
 
 
