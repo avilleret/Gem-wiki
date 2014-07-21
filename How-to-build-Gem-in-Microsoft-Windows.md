@@ -32,23 +32,23 @@ and unpack it.
 ### FTGL and Freetype
 You also need FTGL and Freetype libraries.
 
-#### Freetype 
+#### Freetype
 1. Unfortunately, Freetype 2.3.5 has some linking issues.
  So I used the latest version available 2.5.0, but there is no binary.
- Here is how to build it yourself. 
+ Here is how to build it yourself.
 2. Download [freetype-2.5.0.tar.gz](http://download.savannah.gnu.org/releases/freetype/freetype-2.5.0.tar.gz) or something like that from [http://www.freetype.org/download.html](http://www.freetype.org/download.html).
 3. Extract the zip file in a place you know and you may remember easily (e.g. I put it in : `C:\Users\win7\Bibliothèques\freetype-2.5.0\`)
-4. Open the solution which fits best your environment (for Windows XP 32bit and Visual C++ 2010 Express it's `builds\win32\vc2010\freetype.sln`) 
-5. Select the `Release Multithreaded` and `Win32` configurations then hit <kbd>F7</kbd>	to generate the solution. 
-6. You should have a `freetype250MT.lib` under `objs\win32\vc2010` (or something else somewhere under the `objs` folder depending on your configuration). 
-7. For the next steps, it is useful to setup a global environment variable called `FREETYPE` and pointing to the root of the freetype directory (where `objs` and `include` folders are). This is under the *advanced system properties* of Windows, its exact location depends on your Windows version. 
+4. Open the solution which fits best your environment (for Windows XP 32bit and Visual C++ 2010 Express it's `builds\win32\vc2010\freetype.sln`)
+5. Select the `Release Multithreaded` and `Win32` configurations then hit <kbd>F7</kbd>	to generate the solution.
+6. You should have a `freetype250MT.lib` under `objs\win32\vc2010` (or something else somewhere under the `objs` folder depending on your configuration).
+7. For the next steps, it is useful to setup a global environment variable called `FREETYPE` and pointing to the root of the freetype directory (where `objs` and `include` folders are). This is under the *advanced system properties* of Windows, its exact location depends on your Windows version.
 
 #### FTGL
-1. Download FTGL from [http://sourceforge.net/projects/ftgl/](http://sourceforge.net/projects/ftgl/) 
+1. Download FTGL from [http://sourceforge.net/projects/ftgl/](http://sourceforge.net/projects/ftgl/)
 2. Extract the tar.gz file (you may need a good archive extractor to do that, [7zip](http://www.7-zip.org/) is a good candidate) - again in a place you know and you may remember easily
 3. Then open the `ftgl-2.1.3~rc5\msvc\vc8\ftgl_static.vcproj` file in Visual C++.
 If you are not using VC8 the project should be converted automatically and please follow the wizard. You could also choose some project under other folder depending on your version.
-4. Then generate the solution (you may need to save the solution first). And you will get a `ftgl_static.lib` file under the `msvc/build` folder. 
+4. Then generate the solution (you may need to save the solution first). And you will get a `ftgl_static.lib` file under the `msvc/build` folder.
 
 ## Getting GEM sources
 
@@ -63,13 +63,13 @@ or
 If you plan to make some improvement on Gem (and I encourage you to do that) then it's better to clone the Git repository. But you need [git for windows](http://msysgit.github.io/)
 to do that. Here I [quote IOhannes](http://lists.puredata.info/pipermail/gem-dev/2013-09/006564.html)  who explains his preferred way to contribute (and this is not Windows specific) :
 
-> - go to [http://github.com/](http://github.com/) and get yourself an account (e.g. "rybn"),  then log in.  
-> - go to [http://github.com/umlaeute/Gem](http://github.com/umlaeute/Gem), and click on the "Fork" button in the upper-right corner.  
-> - this will fork the repository into [http://github.com/rybn/Gem](http://github.com/rybn/Gem), go  there and follow the instructions to clone the repository to your local machine.  
-> - do work (add new abstractions/,...) and commit them to your local copy  
-> - push them to github  
-> - go back to [http://github.com/rybn/Gem](http://github.com/rybn/Gem) and click on "Pull Request" and follow the instructions there.  
-> - I will get a notification that i should merge in your changes and can do so (after reviewing them) 
+> - go to [http://github.com/](http://github.com/) and get yourself an account (e.g. "rybn"),  then log in.
+> - go to [http://github.com/umlaeute/Gem](http://github.com/umlaeute/Gem), and click on the "Fork" button in the upper-right corner.
+> - this will fork the repository into [http://github.com/rybn/Gem](http://github.com/rybn/Gem), go  there and follow the instructions to clone the repository to your local machine.
+> - do work (add new abstractions/,...) and commit them to your local copy
+> - push them to github
+> - go back to [http://github.com/rybn/Gem](http://github.com/rybn/Gem) and click on "Pull Request" and follow the instructions there.
+> - I will get a notification that i should merge in your changes and can do so (after reviewing them)
 
 Then you have a folder containing all the sources files. Please read also `doc/CodingStyle.txt` before making changes.
 
