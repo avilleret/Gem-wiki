@@ -23,7 +23,7 @@ And follow the README instruction to build it.
 ### pure-data
 
 You need a recent version of `pure-data`.
-The latest one can be found on [http://puredata.info/downloads](http://puredata.info/downloads)
+The latest one can be found on [http://puredata.info/downlaods](http://puredata.info/downloads)
 
 Note that there are 32-bit and 64-bit version of pure-data.
 But 64-bit Pd-extended is not well supported for now.
@@ -31,7 +31,9 @@ So maybe 32-bit is a good choice at first.
 
 ### get Gem's sources
 
-`git clone git://git.code.sf.net/p/pd-gem/gem`
+~~~~
+git clone git://git.code.sf.net/p/pd-gem/gem
+~~~~
 
 ### third party libs
 Gem has a plugin system wich adds lot's of functionalities depending on installed libraries.
@@ -40,7 +42,7 @@ Gem has a plugin system wich adds lot's of functionalities depending on installe
 
 #### OpenGL
 Mac OS X comes with GLU and OpenGL but it seems to be mandatory to install GLEW instead `./configure` fails :
-`brew install glew`glut
+`brew install glew glut`
 
 
 Building process
@@ -52,10 +54,24 @@ If you clone the git repository, you have to build the building tool yourself fr
 
 ### configure
 Then configure the building chain with :
-`./configure --without-libquicktime --without-ftgl --enable-multicontext --enable-fat-binary=i386`
+
+~~~~
+./configure --enable-multicontext --enable-fat-binary=i386
+~~~~
+
 I use the `--enable-fat-binary=i386` flag to force 32 bit binary.
 The `--enable-multicontext` flag is experimental for now but needed to get a working `[gemwin]` pd-object.
 `--without-libquicktime` disable legacy QuickTime support, it's time to switch to AV Foundation.
+
+then bulid the whole with : 
+
+~~~~
+make CPPFLASG=`pkg-config --cflags freetyp2`
+~~~~
+
+`CPPFLASG=\`pkg-config --cflags freetyp2\`` is needed because `configure` script doesn't add `freetype` headers to include paths.
+See : https://github.com/umlaeute/Gem/issues/27
+
 
 
 
