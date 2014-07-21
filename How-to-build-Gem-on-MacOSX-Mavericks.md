@@ -1,4 +1,4 @@
-How to build Gem on Mac OS X Mavericks
+How to build Gem on Mac OS X Mavericks 
 ======================================
 
 This document describe how to build Gem on Mac OS X Maverick.
@@ -8,12 +8,12 @@ Requirements
 
 ### Xcode command line tools
 
-You need to download Xcode Command Line tools. It comes with Xcode but if you don't want to install full Xcode development package, you can run in a terminal : `xcode-select --install` and then click `Install` rather than `Get Xcode`.
+You need to download Xcode Command Line tools. It comes with Xcode but if you don't want to install full Xcode developpement package, you can run in a terminal : `xcode-select --install` and then click `Install` rather than `Get Xcode`.
 
 ### gettext
 
 You also need the GNU tool `gettext`.
-You can install it from several package managers, but it doesn't seem to work with `brew` when I am writing this.
+You can install it from several package managers, but it doesn't seem to work with `brew` when I am wrinting this.
 So I built it from sources.
 Get the source here : [https://www.gnu.org/software/gettext/](https://www.gnu.org/software/gettext/)
 And follow the README instruction to build it.
@@ -36,13 +36,13 @@ git clone git://git.code.sf.net/p/pd-gem/gem
 ~~~~
 
 ### third party libs
-Gem has a plugin system which adds lot's of functionalities depending on installed libraries.
+Gem has a plugin system wich adds lot's of functionalities depending on installed libraries.
 #### ImageMagick and FTGL
 `brew install imagemagick ftgl` and this also install Freetype
 
 #### OpenGL
-Mac OS X comes with GLU and OpenGL but it seems to be mandatory to install GLEW instead `./configure` fails :
-`brew install glew glut`
+Mac OS X comes with GLU and OpenGL but you can enable other output by adding some libraries :
+`brew install glut`
 
 
 Building process
@@ -61,13 +61,13 @@ Then configure the building chain with :
 
 I use the `--enable-fat-binary=i386` flag to force 32 bit binary.
 
-then build the whole with :
+then build with : 
 
 ~~~~
-make CPPFLAGS=$(pkg-config --cflags freetype2)
+make CPPFLAGS=`pkg-config --cflags freetype2`
 ~~~~
 
-`CPPFLAGS=$(pkg-config --cflags freetype2)` is needed because `configure` script doesn't add `freetype` headers to include paths.
+`CPPFLASG=\`pkg-config --cflags freetyp2\`` is needed because `configure` script doesn't add `freetype` headers to include paths.
 See : https://github.com/umlaeute/Gem/issues/27
 
 
