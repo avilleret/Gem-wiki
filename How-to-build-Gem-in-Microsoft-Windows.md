@@ -1,6 +1,6 @@
 This document describes how to build Gem on W32 using Microsoft's Visual Studio
 
-## Preambule
+## Preamble
 
 This document was originally written with a French version of Visual C++ 2008 Express.
 Menus and labels in this document might be translated from this version, and thus differ from the original ones.
@@ -23,7 +23,7 @@ You need the Pure data sources to build Gem, either the Vanilla or Extended vers
 The easiest way is to download a zip for Windows from [http://puredata.info/downloads](http://puredata.info/downloads).
 Then unpack it.
 
-### Pthread
+### Pthreads
 
 Download the latest release from here:
 [http://sourceforge.net/projects/pthreads4w/](http://sourceforge.net/projects/pthreads4w/)
@@ -79,7 +79,7 @@ In the `Gem\build\win-vce2010` (**e** is for *E*xpress, not for *E*mbedded.
 ) folder, you will find a `Gem.sln` file.
 Some conversion may be needed if you are using another version of Visual C++.
 
-Once the project imported, open the *Properties manager* window and find the Puredata
+Once the project imported, open the *Properties manager* window and find the Pure Data
 configuration. Open it and adjust the PD_DIR macro under the _User macro_ page to point to your Pd folder.
 
 In the *pthread properties sheet* change the PTHREAD_DIR and the PD_DIR macro to point to the `pthread` directory (for me it's `C:\Users\win7\Bibliothèques\pthreads-w32-2-9-1-release\Pre-built.2`)
@@ -112,7 +112,7 @@ Update the macros in the *DirectShow properties sheet*.
 
 You need the *QuickTime SDK for Windows*:
 [https://developer.apple.com/quicktime/](https://developer.apple.com/quicktime/)
-(you need an Apple Developper account to download it...).
+(you need an Apple Developer account to download it...).
 
 If you install it in the default location ("`C:\Program Files`") you don't need to adjust any path.
 
