@@ -1,7 +1,7 @@
 How to build Gem on Mac OS X Mavericks 
 ======================================
 
-This document describe how to build Gem on Mac OS X Maverick.
+This document describe how to build Gem on Mac OS X Maverick (OSX-10.9).
 
 Requirements
 ------------
