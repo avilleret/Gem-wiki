@@ -70,7 +70,12 @@ Then configure the building chain with :
 ./configure --enable-fat-binary=i386
 ~~~~
 
-I use the `--enable-fat-binary=i386` flag to force 32 bit binary.
+I use the `--enable-fat-binary=i386` to force 32bit binary because I'm building against Pd-extended 32bit.
+You can configure to build against Pd-Vanilla 64bit with :
+
+~~~~
+./configure --with-pd=/Applications/Pd-0.45-4-64bit.app/Contents/Resources/
+~~~~
 
 then build with : 
 
