@@ -6,11 +6,23 @@ This document describe how to build Gem on Mac OS X Maverick (OSX-10.9).
 Requirements
 ------------
 
-### Xcode command line tools
+### Tool chain
+
+#### Xcode command line tools
 
 You need to download Xcode Command Line tools. It comes with Xcode but if you don't want to install full Xcode development package, you can run in a terminal : `xcode-select --install` and then click `Install` rather than `Get Xcode`.
 
-### gettext
+#### brew
+
+[brew](http://brew.sh) is a package manager for OSX that provides various libraries.
+It is not strictly necessary to build Gem, but it comes in handy if you want to install third-party libraries.
+
+#### pkg-config
+
+`pkg-config` eases the use of various Development packages:
+`brew install pkg-config`
+
+#### gettext
 
 You also need the GNU tool `gettext`.
 You can install it from several package managers, but it doesn't seem to work with `brew` when I am writing this.
