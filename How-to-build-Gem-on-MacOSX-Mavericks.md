@@ -52,10 +52,9 @@ Gem has a plugin system which adds lot's of functionalities depending on install
 #### ImageMagick and FTGL
 `brew install imagemagick ftgl` and this also install Freetype
 
-#### OpenGL
-Mac OS X comes with GLU and OpenGL but you can enable other output by adding some libraries :
-`brew install glut`
-
+#### Output
+Mac OS X comes with an OpenGL framework but you can enable other outputs by adding some libraries :
+`brew install sdl homebrew/versions/glfw2 homebrew/versions/glfw3`
 
 Building process
 ----------------
