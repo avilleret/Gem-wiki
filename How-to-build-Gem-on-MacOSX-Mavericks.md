@@ -23,7 +23,7 @@ And follow the README instruction to build it.
 ### pure-data
 
 You need a recent version of `pure-data`.
-The latest one can be found on [http://puredata.info/downlaods](http://puredata.info/downloads)
+The latest one can be found on [http://puredata.info/downloads](http://puredata.info/downloads)
 
 Note that there are 32-bit and 64-bit version of pure-data.
 But 64-bit Pd-extended is not well supported for now.
