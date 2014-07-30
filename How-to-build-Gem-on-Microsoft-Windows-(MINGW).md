@@ -68,10 +68,12 @@ So open up your MINGW-shell (see above) and run
 ~~~bash
 $ cd ~/src/GitHub/Gem/
 $ ./autogen.sh
-$ ./configure --with-pd=/c/programme/pd
+$ ./configure --with-pd=/c/programme/pd --without-ftgl
 ~~~
 
-for whatever reasons this gave me an error
+The first option tells `configure` where to find Pd, the second option disables font-support (for now).
+
+For whatever reasons this gave me an error
 > GL (headers) not found! you need openGL!!!
 
 which I ignored and proceeded
