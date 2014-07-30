@@ -30,9 +30,17 @@ and install (at least):
  - mingw32-gcc-g++
  - msys-base
 
+also make sure you have the following **dev** package installed
+
+  - mingw32-pthreads-w32
+
 I have used the default installation target, which will install everything to `C:\MinGW\`.
 Since we need the *MinGW Shell* (which I find installed as  `C:\MinGW\msys\1.0\msys.bat`),
 I created a shortcut from my desktop to the batch-file.
+
+MinGW automatically mounts the windows drives. Therefore my Pd-installation is visible as
+
+     /c/Programme/pd
 
 I also like to have the Gem-sources available in my MinGW home-directory, so I added the
 following line to the `C:\MinGW\msys\1.0\etc\fstab` file:
@@ -55,4 +63,19 @@ TO BE WRITTEN
 ## building
 
 MinGW allows us to use the autotools.
-So open up your MINGW-shell (see above)
+So open up your MINGW-shell (see above) and run
+
+~~~bash
+$ cd ~/src/GitHub/Gem/
+$ ./autogen.sh
+$ ./configure --with-pd=/c/programme/pd
+~~~
+
+for whatever reasons this gave me an error
+> GL (headers) not found! you need openGL!!!
+
+which I ignored and proceeded
+
+~~~bash
+$ make
+~~~
