@@ -88,7 +88,9 @@ You can configure to build against Pd-Vanilla/64bit with :
 ./configure --with-pd=/Applications/Pd-0.45-4-64bit.app/Contents/Resources/
 ~~~~
 
-then build with : 
+Since this is should become a 64bit build, omit the `--enable-fat-binary` flag.
+
+Then build with :
 
 ~~~~
 make
