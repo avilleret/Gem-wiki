@@ -52,10 +52,9 @@ Gem has a plugin system which adds lot's of functionalities depending on install
 #### ImageMagick and FTGL
 `brew install imagemagick ftgl` and this also install Freetype
 
-#### OpenGL
-Mac OS X comes with GLU and OpenGL but you can enable other output by adding some libraries :
-`brew install glut`
-
+#### Output
+Mac OS X comes with an OpenGL framework but you can enable other outputs by adding some libraries :
+`brew install sdl homebrew/versions/glfw2 homebrew/versions/glfw3`
 
 Building process
 ----------------
@@ -71,7 +70,12 @@ Then configure the building chain with :
 ./configure --enable-fat-binary=i386
 ~~~~
 
-I use the `--enable-fat-binary=i386` flag to force 32 bit binary.
+I use the `--enable-fat-binary=i386` to force 32bit binary because I'm building against Pd-extended 32bit.
+You can configure to build against Pd-Vanilla 64bit with :
+
+~~~~
+./configure --with-pd=/Applications/Pd-0.45-4-64bit.app/Contents/Resources/
+~~~~
 
 then build with : 
 
