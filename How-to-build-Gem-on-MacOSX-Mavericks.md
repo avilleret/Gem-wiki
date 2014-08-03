@@ -32,6 +32,14 @@ And follow the README instruction to build it.
 
 `gettext`is needed by automake tools. If it's not installed, it tries to make the job without it but in my case it failed, so I installed it.
 
+Some people [reported](http://lists.puredata.info/pipermail/gem-dev/2014-08/006904.html) that they succeeded with *brew*'s `gettext` using the following command, but I haven't tried it (yet):
+
+~~~~
+$ brew install gettext
+$ brew link gettext --force
+~~~~
+
+
 ### pure-data
 
 You need a recent version of `pure-data`.
