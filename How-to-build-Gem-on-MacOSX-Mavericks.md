@@ -79,7 +79,10 @@ Then configure the building chain with :
 ~~~~
 
 I use the `--enable-fat-binary=i386` to force 32bit binary because I'm building against Pd-extended 32bit.
-You can configure to build against Pd-Vanilla 64bit with :
+If configure cannot find Pd (e.g. because you installed it in a non-standard location),
+you have to tell it where to search by adding a flag like `--with-pd=/Applications/Pd-0.45-5.app/Contents/Resources/`.
+
+You can configure to build against Pd-Vanilla/64bit with :
 
 ~~~~
 ./configure --with-pd=/Applications/Pd-0.45-4-64bit.app/Contents/Resources/
