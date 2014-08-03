@@ -95,3 +95,20 @@ Then build with :
 ~~~~
 make
 ~~~~
+
+
+
+## enabling more plugins
+
+Enabling plugins needs to happen right before *compiling* Gem (or the respective plugins).
+
+### VLC - grab images using libVLC
+
+Get [VLC](http://videolan.org) and install it (I assume it is installed into `/Applications/VLC.app`).
+
+Unfortunately, VLC is not automatically detected, so you have to tell configure about it, by exporting the following environment-variables before running `./configure`:
+
+~~~
+export PKG_LIBVLC_CFLAGS="-I/Applications/VLC.app/Contents/MacOS/include"
+export PKG_LIBVLC_LIBS="-L/Applications/VLC.app/Contents/MacOS/lib -lvlc"
+~~~
