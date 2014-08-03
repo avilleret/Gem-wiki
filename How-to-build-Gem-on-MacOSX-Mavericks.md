@@ -52,7 +52,7 @@ So maybe 32-bit is a good choice at first.
 ### get Gem's sources
 
 ~~~~
-git clone git://git.code.sf.net/p/pd-gem/gem
+git clone https://github.com/umlaeute/Gem.git
 ~~~~
 
 ### third party libs
