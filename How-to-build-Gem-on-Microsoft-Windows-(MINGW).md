@@ -88,6 +88,15 @@ $ ./configure --with-gl-lib="-lglu32 -lopengl32"
 $ make install
 ~~~
 
+Since we will do *dynamic* linking, we need to put the dll's we just created into a place where W32 will find them.
+A good start is, the directory where the Gem-binary will live (the root of the Gem sources):
+
+~~~bash
+$ cp /usr/local/bin/libfreetype*.dll ~/src/GitHub/Gem/
+$ cp /usr/local/bin/libftgl*.dll     ~/src/GitHub/Gem/
+~~~
+
+
 ## building
 
 MinGW allows us to use the autotools.
@@ -119,3 +128,16 @@ gem_videoDS.dll
 gem_videoVFW.dll
 gemw32window.dll
 ~~~
+
+When trying to the so-created binary within Pd, you might get an error about missing dynamic libraries.
+
+To solve this, locate the given library and copy it next to the `Gem.dll`.
+Good starting places are `/mingw/bin` (aka `C:\MinGW\bin`) and `/usr/local/bin` (aka `C:\MinGW\msys\1.0\local\bin`).
+
+Some libraries I needed to copy:
+
+- libgcc_s_dw2-1.dll
+- libstdc++-6.dll
+- pthreadGC2.dll
+- libfreetype-6.dll
+- libftgl-2.dll
