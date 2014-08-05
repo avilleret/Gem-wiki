@@ -170,7 +170,7 @@ gem_videoVFW.dll
 gemw32window.dll
 ~~~
 
-When trying to the so-created binary within Pd, you might get an error about missing dynamic libraries.
+When trying out the so-created binary within Pd, you might get an error about missing dynamic libraries.
 
 To solve this, locate the given library and copy it next to the `Gem.dll`.
 Good starting places are `/mingw/bin` (aka `C:\MinGW\bin`) and `/usr/local/bin` (aka `C:\MinGW\msys\1.0\local\bin`).
