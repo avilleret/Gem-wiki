@@ -132,3 +132,43 @@ Unfortunately, VLC is not automatically detected, so you have to tell configure 
 export PKG_LIBVLC_CFLAGS="-I/Applications/VLC.app/Contents/MacOS/include"
 export PKG_LIBVLC_LIBS="-L/Applications/VLC.app/Contents/MacOS/lib -lvlc"
 ~~~
+
+
+### GMERLIN - opening films
+[gmerlin](http://gmerlin.sourceforge.net) is a generic media decoding library, that uses - among other libraries - [ffmpeg](http://ffmpeg.org).
+
+Therefore install *ffmpeg* first (the additional arguments will install ALL optional dependencies for enhanced functionality):
+
+~~~~bash
+$ brew install ffmpeg $(brew info ffmpeg | egrep "^--with-")
+~~~~
+
+At time of writing, the last release of *gmerlin/gavl* has been a while ago, and is no longer compatible with recent *ffmpeg*.
+Therefore you should get the latest development version via `svn`:
+
+~~~~bash
+$ svn checkout http://svn.code.sf.net/p/gmerlin/code/trunk/gavl
+$ svn checkout http://svn.code.sf.net/p/gmerlin/code/trunk/gmerlin_avdecoder
+~~~~
+
+Then build the two libraries (first *gavl*, then *gmerlin_avdecoder* which depends on the former):
+
+~~~~bash
+$ cd gavl
+$ ./autogen.sh
+$ ./configure && make install
+
+$ cd ..
+
+$ cd gmerlin_avdecoder
+$ ./autogen.sh
+$ ./configure && make install
+~~~~
+
+At time of writing, I had to edit `gmerlin_avdecoder/po/Makefile.in.in` and change the value of `GETTEXT_MACRO_VERSION` at the beginning of the file to match the gettext-version installed on my system:
+
+~~~~
+GETTEXT_MACRO_VERSION = 0.19
+~~~~
+
+Once *gmerlin-avdecoder* is installed, running Gem's `./configure` will automatically detect and use this library.
