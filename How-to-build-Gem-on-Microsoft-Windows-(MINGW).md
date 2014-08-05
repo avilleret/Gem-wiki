@@ -14,9 +14,9 @@ See the [other WIKI pages](How-to-build-Gem-on-Microsoft-Windows) where to find 
 
 I put the sources into `C:\Users\zmoelnig\Development\GitHub\Gem`
 
-### Pure data
+### Pure Data
 
-You need the Pure data sources to build Gem, either the Vanilla or Extended version.
+You need the Pure Data sources to build Gem, either the Vanilla or Extended version.
 The easiest way is to download a zip for Windows from [http://puredata.info/downloads](http://puredata.info/downloads).
 Then unpack it.
 
