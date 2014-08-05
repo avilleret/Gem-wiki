@@ -34,15 +34,15 @@ and install (at least):
  - mingw32-gcc-g++
  - msys-base
 
-also make sure you have the following **dev** package installed
+also make sure you have the following *dev* package installed
 
   - mingw32-pthreads-w32
 
 I have used the default installation target, which will install everything to `C:\MinGW\`.
-Since we need the *MinGW Shell* (which I find installed as  `C:\MinGW\msys\1.0\msys.bat`),
-I created a shortcut from my desktop to the batch-file.
+Since we need the *MinGW Shell* (which I find installed as `C:\MinGW\msys\1.0\msys.bat`),
+I created a shortcut from my desktop to that batch-file.
 
-MinGW automatically mounts the windows drives. Therefore my Pd-installation is visible as
+MinGW automatically mounts the W32 drives. Therefore my Pd-installation is visible as
 
      /c/Programme/pd
 
@@ -59,6 +59,7 @@ Now, whenever I open the *MinGW Shell*, I can do
 cd ~/src/GitHub/Gem
 ~~~
 to find my Gem-sources
+
 ### FTGL
 
 TO BE WRITTEN
