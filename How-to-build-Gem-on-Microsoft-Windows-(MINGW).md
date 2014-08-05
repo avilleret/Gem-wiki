@@ -66,7 +66,11 @@ cd ~/src/GitHub/Gem
 
 to find my Gem-sources (see [above](#mingw), how mapped the W32 directories to MinGW paths).
 
+
 ### FTGL
+
+For text rendering, the *FTGL* library is required.
+If you don't need text display within Gem, you can skip this part, and add `--without-ftgl` to the *configure* flags.
 
 Download [freetype](http://sourceforge.net/projects/freetype/) (2.5.3) and [FTGL](http://sourceforge.net/projects/ftgl) (2.1.3-rc5) and extract them (I extracted them to `C:\Users\zmoelnig\Development\3rdparty`, which is `~/src/3rdparty` on MinGW).
 
