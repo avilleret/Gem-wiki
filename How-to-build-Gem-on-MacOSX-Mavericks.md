@@ -10,7 +10,7 @@ Requirements
 
 #### Xcode command line tools
 
-You need to download Xcode Command Line tools. It comes with Xcode but if you don't want to install full Xcode development package, you can run in a terminal : `xcode-select --install` and then click `Install` rather than `Get Xcode`.
+You need to download Xcode Command Line tools. It comes with Xcode but if you don't want to install full Xcode development package, you can run in a terminal: `xcode-select --install` and then click `Install` rather than `Get Xcode`.
 
 #### brew
 
@@ -27,7 +27,7 @@ It is not strictly necessary to build Gem, but it comes in handy if you want to 
 You also need the GNU tool `gettext`.
 You can install it from several package managers, but it doesn't seem to work with `brew` when I am writing this.
 So I built it from sources.
-Get the source here : [https://www.gnu.org/software/gettext/](https://www.gnu.org/software/gettext/)
+Get the source here: [https://www.gnu.org/software/gettext/](https://www.gnu.org/software/gettext/)
 And follow the README instruction to build it.
 
 `gettext`is needed by automake tools. If it's not installed, it tries to make the job without it but in my case it failed, so I installed it.
@@ -61,18 +61,18 @@ Gem has a plugin system which adds lot's of functionalities depending on install
 `brew install imagemagick ftgl` and this also install Freetype
 
 #### Output
-Mac OS X comes with an OpenGL framework but you can enable other outputs by adding some libraries :
+Mac OS X comes with an OpenGL framework but you can enable other outputs by adding some libraries:
 `brew install sdl homebrew/versions/glfw2 homebrew/versions/glfw3`
 
 Building process
 ----------------
 
 ### autogen.sh
-If you clone the git repository, you have to build the building tool yourself from the root of the cloned directory :
+If you clone the git repository, you have to build the building tool yourself from the root of the cloned directory:
 `./autogen.sh`
 
 ### configure
-Then configure the building chain with :
+Then configure the building chain with:
 
 ~~~~
 ./configure --enable-fat-binary=i386
@@ -82,7 +82,7 @@ I use the `--enable-fat-binary=i386` to force 32bit binary because I'm building 
 If configure cannot find Pd (e.g. because you installed it in a non-standard location),
 you have to tell it where to search by adding a flag like `--with-pd=/Applications/Pd-0.45-5.app/Contents/Resources/`.
 
-You can configure to build against Pd-Vanilla/64bit with :
+You can configure to build against Pd-Vanilla/64bit with:
 
 ~~~~
 ./configure --with-pd=/Applications/Pd-0.45-4-64bit.app/Contents/Resources/
@@ -90,7 +90,7 @@ You can configure to build against Pd-Vanilla/64bit with :
 
 Since this is should become a 64bit build, omit the `--enable-fat-binary` flag.
 
-Then build with :
+Then build with:
 
 ~~~~
 make

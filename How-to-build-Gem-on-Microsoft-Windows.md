@@ -37,7 +37,7 @@ You also need FTGL and Freetype libraries.
  So I used the latest version available 2.5.0, but there is no binary.
  Here is how to build it yourself.
 2. Download [freetype-2.5.0.tar.gz](http://download.savannah.gnu.org/releases/freetype/freetype-2.5.0.tar.gz) or something like that from [http://www.freetype.org/download.html](http://www.freetype.org/download.html).
-3. Extract the zip file in a place you know and you may remember easily (e.g. I put it in : `C:\Users\win7\Bibliothèques\freetype-2.5.0\`)
+3. Extract the zip file in a place you know and you may remember easily (e.g. I put it in: `C:\Users\win7\Bibliothèques\freetype-2.5.0\`)
 4. Open the solution which fits best your environment (for Windows XP 32bit and Visual C++ 2010 Express it's `builds\win32\vc2010\freetype.sln`)
 5. Select the `Release Multithreaded` and `Win32` configurations then hit <kbd>F7</kbd>	to generate the solution.
 6. You should have a `freetype250MT.lib` under `objs\win32\vc2010` (or something else somewhere under the `objs` folder depending on your configuration).
@@ -54,14 +54,14 @@ If you are not using VC8 the project should be converted automatically and pleas
 
 If you just want to build the last version of Gem but you do not planned to make modifications in the code, let's get a tarball from sourceforge or github of a fresh snapshot.
 
-“Download a zip” here : [https://github.com/umlaeute/Gem](https://github.com/umlaeute/Gem)
+“Download a zip” here: [https://github.com/umlaeute/Gem](https://github.com/umlaeute/Gem)
 
 or
 
-“Download snapshot” here : [http://sourceforge.net/p/pd-gem/gem/ci/master/tree/](http://sourceforge.net/p/pd-gem/gem/ci/master/tree/)
+“Download snapshot” here: [http://sourceforge.net/p/pd-gem/gem/ci/master/tree/](http://sourceforge.net/p/pd-gem/gem/ci/master/tree/)
 
 If you plan to make some improvement on Gem (and I encourage you to do that) then it's better to clone the Git repository. But you need [git for windows](http://msysgit.github.io/)
-to do that. Here I [quote IOhannes](http://lists.puredata.info/pipermail/gem-dev/2013-09/006564.html)  who explains his preferred way to contribute (and this is not Windows specific) :
+to do that. Here I [quote IOhannes](http://lists.puredata.info/pipermail/gem-dev/2013-09/006564.html)  who explains his preferred way to contribute (and this is not Windows specific):
 
 > - go to [http://github.com/](http://github.com/) and get yourself an account (e.g. "rybn"),  then log in.
 > - go to [http://github.com/umlaeute/Gem](http://github.com/umlaeute/Gem), and click on the "Fork" button in the upper-right corner.
@@ -100,10 +100,10 @@ This plug-in should build without any additional library.
 
 ### filmDS – play films with Direct Show
 
-You need the Microsoft Windows SDK : [http://msdn.microsoft.com/en-US/windows/desktop/bb980924](http://msdn.microsoft.com/en-US/windows/desktop/bb980924).
+You need the Microsoft Windows SDK: [http://msdn.microsoft.com/en-US/windows/desktop/bb980924](http://msdn.microsoft.com/en-US/windows/desktop/bb980924).
 Some files lack in the one that comes with Visual C++ 2010 Express.
 
-You need the Windows Driver Kit for ATL support : [http://msdn.microsoft.com/en-us/windows/hardware/hh852365](http://msdn.microsoft.com/en-us/windows/hardware/hh852365).
+You need the Windows Driver Kit for ATL support: [http://msdn.microsoft.com/en-us/windows/hardware/hh852365](http://msdn.microsoft.com/en-us/windows/hardware/hh852365).
 Get the one compatible with your IDE (7.1,0 for me)
 
 Update the macros in the *DirectShow properties sheet*.
@@ -139,7 +139,7 @@ The Windows binary release contains all what you need. Adjust the
 
 ### videoHALCON - grab image with the non-free Halcon library (GigE cameras)
 
-Download Halcon v10 library here : [http://www.halcon.com/halcon/download/](http://www.halcon.com/halcon/download/).
+Download Halcon v10 library here: [http://www.halcon.com/halcon/download/](http://www.halcon.com/halcon/download/).
 
 Choose the *HALCON 10.0.4 full version for Windows XP / 2003 / Vista / 2008 / 7 for SSE2.*
 The HALCON installer sets the environment variable `HALCONROOT` thus there should be nothing to adjust in the properties sheet.
