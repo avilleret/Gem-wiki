@@ -105,10 +105,13 @@ So open up your MINGW-shell (see above) and run
 ~~~bash
 $ cd ~/src/GitHub/Gem/
 $ ./autogen.sh
-$ ./configure --with-pd=/c/programme/pd PKG_FTGL_CFLAGS="-I/usr/local/include $(freetype-config --cflags)" PKG_FTGL_LIBS="-L/usr/local/lib -lftgl"
+$ ./configure                 \
+   --with-pd=/c/programme/pd  \
+   PKG_FTGL_CFLAGS="-I/usr/local/include $(freetype-config --cflags)"  \
+   PKG_FTGL_LIBS="-L/usr/local/lib -lftgl"
 ~~~
 
-The first option tells `configure` where to find Pd.
+The first option (`--with-pd=`) tells `configure` where to find Pd.
 
 The `PKG_FTGL_...` variables tell the build-process how to find and use the font-rendering libraries.
 
