@@ -35,7 +35,7 @@ MinGW automatically mounts the W32 drives. Therefore my Pd-installation is visib
 I also like to have the Gem-sources available in my MinGW home-directory, so I added the
 following line to the `C:\MinGW\msys\1.0\etc\fstab` file:
 
-    C:/Users/zmoelnig/Development /home/zmoelnig/src
+    C:/Users/umlaeute/Development /home/umlaeute/src
 
 This tells MinGW to make the `Development` folder in my W32-home directory available
 as the  `src` folder in my MinGW-home directory.
@@ -48,15 +48,17 @@ Then unpack it.
 
 I installed Pd-vanilla and unzipped it into `C:\Programme\pd\`.
 I will use this path in the rest of the tutorial.
+
+
 Note that you probably should choose a path that **does not** contain spaces.
-E.g. ~~`C:\Program Files\pd`~~ is bad, it's better to use `C:\pd`.
+E.g. ~~`C:\Program Files\pd\`~~ is bad, it's better to use `C:\pd\`.
 
 ### Gem
 
 Obviously you will need the Gem sources, to compile it.
 See the [other WIKI pages](How-to-build-Gem-on-Microsoft-Windows) where to find it.
 
-I put the sources into `C:\Users\zmoelnig\Development\GitHub\Gem`.
+I put the sources into `C:\Users\umlaeute\Development\GitHub\Gem`.
 
 Now, whenever I open the *MinGW Shell*, I can do
 
@@ -66,13 +68,18 @@ cd ~/src/GitHub/Gem
 
 to find my Gem-sources (see [above](#mingw), how mapped the W32 directories to MinGW paths).
 
+### third party libraries
+Gem has a plugin system which adds lot's of functionalities depending on the installed libraries.
 
-### FTGL
+You will need to have these libraries installed when building Gem, in order to be able to use them.
+
+
+#### FTGL
 
 For text rendering, the *FTGL* library is required.
 If you don't need text display within Gem, you can skip this part, and add `--without-ftgl` to the *configure* flags.
 
-Download [freetype](http://sourceforge.net/projects/freetype/) (2.5.3) and [FTGL](http://sourceforge.net/projects/ftgl) (2.1.3-rc5) and extract them (I extracted them to `C:\Users\zmoelnig\Development\3rdparty`, which is `~/src/3rdparty` on MinGW).
+Download [freetype](http://sourceforge.net/projects/freetype/) (2.5.3) and [FTGL](http://sourceforge.net/projects/ftgl) (2.1.3-rc5) and extract them (I extracted them to `C:\Users\umlaeute\Development\3rdparty`, which is `~/src/3rdparty` on MinGW).
 
 Then build them (in the *MinGW Shell*).
 
@@ -107,14 +114,29 @@ $ cp /usr/local/bin/libftgl*.dll     ~/src/GitHub/Gem/
 ~~~
 
 
-## building
+## Building process
 
 MinGW allows us to use the autotools.
-So open up your MINGW-shell (see above) and run
+
+For the following steps, I will assume that you have changed your working directory to the Gem root folder:
 
 ~~~bash
 $ cd ~/src/GitHub/Gem/
+~~~
+
+### autogen.sh
+If you have cloned the git repository,
+you have to build the building tool yourself:
+
+~~~bash
 $ ./autogen.sh
+~~~
+
+### configure
+Next we need to run `configure` in order to detect all installed libraries and setup the build chain:
+
+
+~~~bash
 $ ./configure                 \
    --with-pd=/c/programme/pd  \
    PKG_FTGL_CFLAGS="-I/usr/local/include $(freetype-config --cflags)"  \
@@ -125,9 +147,15 @@ The first option (`--with-pd=`) tells `configure` where to find Pd.
 
 The `PKG_FTGL_...` variables tell the build-process how to find and use the font-rendering libraries.
 
+### Build
+
+Finally start the build by running:
+
 ~~~bash
 $ make
 ~~~
+
+This will take a while.
 
 If all went well, you should now have a `Gem.dll` in your directory, and hopefully a number of Gem-output externals and plugins:
 

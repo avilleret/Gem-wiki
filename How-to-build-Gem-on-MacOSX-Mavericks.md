@@ -1,7 +1,7 @@
 How to build Gem on Mac OS X Mavericks 
 ======================================
 
-This document describe how to build Gem on Mac OS X Maverick (OSX-10.9).
+This document describes how to build Gem on Mac OS X Maverick (OSX-10.9).
 
 Requirements
 ------------
@@ -10,7 +10,8 @@ Requirements
 
 #### Xcode command line tools
 
-You need to download Xcode Command Line tools. It comes with Xcode but if you don't want to install full Xcode development package, you can run the following in a terminal
+You need to download the *Xcode Command Line tools*.
+They come with Xcode but if you don't want to install full Xcode development package, you can run the following in a terminal
 
 ~~~~bash
 $ xcode-select --install
@@ -49,12 +50,12 @@ $ brew link gettext --force
 ~~~~
 
 
-### pure-data
+### Pure Data
 
-You need a recent version of `pure-data`.
+You need a recent version of `Pure Data` (Pd).
 The latest one can be found on [http://puredata.info/downloads](http://puredata.info/downloads)
 
-Note that there are 32-bit and 64-bit version of pure-data.
+Note that there are 32-bit and 64-bit version of Pure Data.
 But 64-bit Pd-extended is not well supported for now.
 So maybe 32-bit is a good choice at first.
 
@@ -84,8 +85,11 @@ $ brew install sdl homebrew/versions/glfw2 homebrew/versions/glfw3
 Building process
 ----------------
 
+The following steps will build Gem from the commandline using `autotools`.
+I assume that you have changed your working directory to the Gem root.
+
 ### autogen.sh
-If you clone the git repository, you have to build the building tool yourself from the root of the cloned directory:
+If you have cloned the git repository, you have to build the building tool yourself:
 
 ~~~~bash
 $ ./autogen.sh
@@ -108,7 +112,9 @@ You can configure to build against Pd-Vanilla/64bit with:
 $ ./configure --with-pd=/Applications/Pd-0.45-4-64bit.app/Contents/Resources/
 ~~~~
 
-Since this is should become a 64bit build, omit the `--enable-fat-binary` flag.
+Since this should become a 64bit build, omit the `--enable-fat-binary` flag.
+
+### Build
 
 Then build with:
 
