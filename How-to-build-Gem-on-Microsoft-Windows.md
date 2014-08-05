@@ -1,3 +1,6 @@
+How to build Gem on Microsoft Windows using VisualStudio
+========================================================
+
 This document describes how to build Gem on W32 using Microsoft's Visual Studio
 
 ## Preamble

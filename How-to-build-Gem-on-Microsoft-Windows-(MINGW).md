@@ -1,3 +1,7 @@
+How to build Gem on Microsoft Windows using MinGW
+=================================================
+
+
 This document describes how to build Gem on W32 using [MinGW](http://www.mingw.org)
 
 
