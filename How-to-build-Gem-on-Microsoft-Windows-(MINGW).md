@@ -78,11 +78,6 @@ $ ./configure --with-pd=/c/programme/pd --without-ftgl
 
 The first option tells `configure` where to find Pd, the second option disables font-support (for now).
 
-For whatever reasons this gave me an error
-> GL (headers) not found! you need openGL!!!
-
-which I ignored and proceeded
-
 ~~~bash
 $ make
 ~~~
