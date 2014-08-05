@@ -106,3 +106,16 @@ The `PKG_FTGL_...` variables tell the build-process how to find and use the font
 ~~~bash
 $ make
 ~~~
+
+If all went well, you should now have a `Gem.dll` in your directory, and hopefully a number of Gem-output externals and plugins:
+
+~~~bash
+$ ls *.dll
+Gem.dll
+gem_filmAVI.dll
+gem_filmDS.dll
+gem_imageSGI.dll
+gem_videoDS.dll
+gem_videoVFW.dll
+gemw32window.dll
+~~~
