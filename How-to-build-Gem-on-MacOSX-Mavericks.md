@@ -10,7 +10,13 @@ Requirements
 
 #### Xcode command line tools
 
-You need to download Xcode Command Line tools. It comes with Xcode but if you don't want to install full Xcode development package, you can run in a terminal: `xcode-select --install` and then click `Install` rather than `Get Xcode`.
+You need to download Xcode Command Line tools. It comes with Xcode but if you don't want to install full Xcode development package, you can run the following in a terminal
+
+~~~~bash
+$ xcode-select --install
+~~~~
+
+and then click `Install` rather than `Get Xcode`.
 
 #### brew
 
@@ -20,7 +26,10 @@ It is not strictly necessary to build Gem, but it comes in handy if you want to 
 #### pkg-config
 
 `pkg-config` eases the use of various Development packages:
-`brew install pkg-config`
+
+~~~~bash
+$ brew install pkg-config
+~~~~
 
 #### gettext
 
@@ -34,7 +43,7 @@ And follow the README instruction to build it.
 
 Some people [reported](http://lists.puredata.info/pipermail/gem-dev/2014-08/006904.html) that they succeeded with *brew*'s `gettext` using the following command, but I haven't tried it (yet):
 
-~~~~
+~~~~bash
 $ brew install gettext
 $ brew link gettext --force
 ~~~~
@@ -51,31 +60,42 @@ So maybe 32-bit is a good choice at first.
 
 ### get Gem's sources
 
-~~~~
-git clone https://github.com/umlaeute/Gem.git
+~~~~bash
+$ git clone https://github.com/umlaeute/Gem.git
 ~~~~
 
 ### third party libs
 Gem has a plugin system which adds lot's of functionalities depending on installed libraries.
+
 #### ImageMagick and FTGL
-`brew install imagemagick ftgl` and this also install Freetype
+The following also installs dependencies (like Freetype):
+
+~~~~bash
+$ brew install imagemagick ftgl
+~~~~
 
 #### Output
 Mac OS X comes with an OpenGL framework but you can enable other outputs by adding some libraries:
-`brew install sdl homebrew/versions/glfw2 homebrew/versions/glfw3`
+
+~~~~bash
+$ brew install sdl homebrew/versions/glfw2 homebrew/versions/glfw3
+~~~~
 
 Building process
 ----------------
 
 ### autogen.sh
 If you clone the git repository, you have to build the building tool yourself from the root of the cloned directory:
-`./autogen.sh`
+
+~~~~bash
+$ ./autogen.sh
+~~~~
 
 ### configure
 Then configure the building chain with:
 
-~~~~
-./configure --enable-fat-binary=i386
+~~~~bash
+$ ./configure --enable-fat-binary=i386
 ~~~~
 
 I use the `--enable-fat-binary=i386` to force 32bit binary because I'm building against Pd-extended 32bit.
@@ -84,16 +104,16 @@ you have to tell it where to search by adding a flag like `--with-pd=/Applicatio
 
 You can configure to build against Pd-Vanilla/64bit with:
 
-~~~~
-./configure --with-pd=/Applications/Pd-0.45-4-64bit.app/Contents/Resources/
+~~~~bash
+$ ./configure --with-pd=/Applications/Pd-0.45-4-64bit.app/Contents/Resources/
 ~~~~
 
 Since this is should become a 64bit build, omit the `--enable-fat-binary` flag.
 
 Then build with:
 
-~~~~
-make
+~~~~bash
+$ make
 ~~~~
 
 
@@ -108,7 +128,7 @@ Get [VLC](http://videolan.org) and install it (I assume it is installed into `/A
 
 Unfortunately, VLC is not automatically detected, so you have to tell configure about it, by exporting the following environment-variables before running `./configure`:
 
-~~~
+~~~bash
 export PKG_LIBVLC_CFLAGS="-I/Applications/VLC.app/Contents/MacOS/include"
 export PKG_LIBVLC_LIBS="-L/Applications/VLC.app/Contents/MacOS/lib -lvlc"
 ~~~
