@@ -101,7 +101,7 @@ $ ./configure --with-pd=/c/programme/pd PKG_FTGL_CFLAGS="-I/usr/local/include $(
 
 The first option tells `configure` where to find Pd.
 
-The `PKG_FTGL_...` variables tell the build-process how to use the font-rendering libraries.
+The `PKG_FTGL_...` variables tell the build-process how to find and use the font-rendering libraries.
 
 ~~~bash
 $ make
