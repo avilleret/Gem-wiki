@@ -182,3 +182,27 @@ Some libraries I needed to copy:
 - pthreadGC2.dll
 - libfreetype-6.dll
 - libftgl-2.dll
+
+
+### VLC - grab images using libVLC
+
+Get [VLC](http://videolan.org) and install it (I assume it is installed into `C:\Programme\VideoLAN\VLC`).
+
+As with *VLC-2.1.5(rincewind)* some hacks are needed to be able to successfully compile the *videoVLC* plugin:
+
+Go to `C:\Programme\VideoLAN\VLC\sdk\lib` and do the following:
+- remove the `libvlc.la` and `libvlccore.la` files (or move them away, or rename them)
+- copy the `libvlc.lib` file to `libvlc.dll.a`
+- copy the `libvlccore.lib` file to `libvlccore.dll.a`
+
+Then you can enable VLC-support,
+by appending the following variables when calling `./configure`:
+
+~~~bash
+$ configure \
+# other flags go here...
+	PKG_LIBVLC_CFLAGS="-I/c/Programme/VideoLAN/VLC/sdk/include" \
+	PKG_LIBVLC_LIBS="-L/c/Programme/VideoLAN/VLC/sdk/lib -lvlc"
+~~~
+
+Finally copy the files `libvlc.dll` and `libvlccore.dll` from `C:\Programme\VideoLAN\VLC` next to Gem.
