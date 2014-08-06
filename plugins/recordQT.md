@@ -1,2 +1,2 @@
-recordQT - movie output using Apple´s QuickTime
+recordQT - movie output using Apple’s QuickTime
 ===
