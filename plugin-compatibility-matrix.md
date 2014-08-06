@@ -31,7 +31,7 @@ this page contains a tabular list of the availability of plugins, depending on t
 
 # model plugins
 
-note: currently all model-loading plugins are broken (at least for multicontext builds; see issue #31  )
+note: currently all model-loading plugins are broken (at least for multicontext builds; see issue [#31](/umlaeute/Gem/issues/31)
 
 | *plugin*           | linux (Debian/64bit) | OSX (10.9/6bit) | W7 (32bit/MinGW) |
 | ------------------ |:--------------------:|:---------------:|:----------------:|
