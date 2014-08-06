@@ -1,2 +1,2 @@
-videoAVT.md - video grabber using videoAVT.md
+videoAVT - video grabber using AVT
 ===

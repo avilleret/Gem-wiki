@@ -1,2 +1,7 @@
-filmTEST.md - movie loader using filmTEST.md
+filmTEST - testing movie loader
 ===
+
+This plugin does not really load a movie,
+but instead generates some test image.
+
+It can be used to test whether `[pix_film]` does anything useful.

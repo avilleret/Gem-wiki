@@ -1,2 +1,2 @@
-videoUNICAP.md - video grabber using videoUNICAP.md
+videoUNICAP - video grabber using libUNICAP
 ===

@@ -1,2 +1,2 @@
-imageJPEG.md - image loader/saver using imageJPEG.md
+imageJPEG - image loader/saver using libJPEG
 ===

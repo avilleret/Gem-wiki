@@ -1,2 +1,2 @@
-imageSGI.md - image loader/saver using imageSGI.md
+imageSGI - image loader/saver for SGI-images
 ===

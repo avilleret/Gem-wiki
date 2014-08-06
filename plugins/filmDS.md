@@ -1,2 +1,2 @@
-filmDS.md - movie loader using filmDS.md
+filmDS - movie loader using DirectShow (W32)
 ===

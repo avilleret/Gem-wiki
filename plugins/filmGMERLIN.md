@@ -1,2 +1,2 @@
-filmGMERLIN.md - movie loader using filmGMERLIN.md
+filmGMERLIN - movie loader using gmerlin-avdecoder
 ===

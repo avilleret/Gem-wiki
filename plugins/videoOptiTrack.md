@@ -1,2 +1,2 @@
-videoOptiTrack.md - video grabber using videoOptiTrack.md
+videoOptiTrack - video grabber using OptiTrack (W32)
 ===

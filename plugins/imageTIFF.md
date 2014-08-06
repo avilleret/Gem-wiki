@@ -1,2 +1,2 @@
-imageTIFF.md - image loader/saver using imageTIFF.md
+imageTIFF - image loader/saver using libTIFF
 ===

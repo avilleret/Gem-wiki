@@ -1,2 +1,2 @@
-recordQT4L.md - movie output using recordQT4L.md
+recordQT4L - movie output using quicktime4linux
 ===

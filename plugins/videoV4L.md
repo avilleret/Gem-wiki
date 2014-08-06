@@ -1,2 +1,2 @@
-videoV4L.md - video grabber using videoV4L.md
+videoV4L - video grabber using video4linux1 (linux)
 ===

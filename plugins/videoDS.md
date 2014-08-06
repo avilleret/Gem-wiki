@@ -1,2 +1,2 @@
-videoDS.md - video grabber using videoDS.md
+videoDS - video grabber using DirectShow (W32)
 ===

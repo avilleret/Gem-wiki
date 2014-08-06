@@ -1,2 +1,2 @@
-recordQT.md - movie output using recordQT.md
+recordQT - movie output using Apple's QuickTime
 ===

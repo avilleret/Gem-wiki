@@ -1,2 +1,2 @@
-videoVFW.md - video grabber using videoVFW.md
+videoVFW - video grabber using VideoForWindows (W32)
 ===

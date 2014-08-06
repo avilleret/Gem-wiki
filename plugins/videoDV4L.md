@@ -1,2 +1,4 @@
-videoDV4L.md - video grabber using videoDV4L.md
+videoDV4L - video grabber using libDV4L (linux)
 ===
+
+Acquires images from consumer-grade IEEE1394 ("firewire") cameras.

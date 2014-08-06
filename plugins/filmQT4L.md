@@ -1,2 +1,2 @@
-filmQT4L.md - movie loader using filmQT4L.md
+filmQT4L - movie loader using quicktime4linux
 ===

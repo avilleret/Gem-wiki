@@ -1,2 +1,2 @@
-recordV4L2.md - movie output using recordV4L2.md
+recordV4L2 - live video output using video4linux2 (linux)
 ===

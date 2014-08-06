@@ -1,2 +1,2 @@
-imageQT.md - image loader/saver using imageQT.md
+imageQT - image loader/saver using Apple's QuickTime
 ===

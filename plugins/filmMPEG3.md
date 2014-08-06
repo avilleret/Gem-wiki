@@ -1,2 +1,2 @@
-filmMPEG3.md - movie loader using filmMPEG3.md
+filmMPEG3 - movie loader using libMPEG3
 ===

@@ -1,2 +1,2 @@
-filmDarwin.md - movie loader using filmDarwin.md
+filmDarwin - movie loader using Carbon/QuickTime (OSX)
 ===

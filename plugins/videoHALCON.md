@@ -1,2 +1,2 @@
-videoHALCON.md - video grabber using videoHALCON.md
+videoHALCON - video grabber using HALCON
 ===
