@@ -5,16 +5,16 @@ plugin compatibility matrix
 
 | *plugin*           | linux (Debian/64bit) | OSX (10.9/6bit) | W7 (32bit/MinGW) |
 | ------------------ |:--------------------:|:---------------:|:----------------:|
-|  filmAVFoundation  | ??                   | ??              | ??               |
+|  filmAVFoundation  | n/a                  | n/a             | n/a              |
 |  filmAVI           | ??                   | ??              | ??               |
 |  filmAVIPLAY       | ??                   | ??              | ??               |
-|  filmDarwin        | ??                   | ??              | ??               |
-|  filmDS            | ??                   | ??              | ??               |
+|  filmDarwin        | n/a                  | ??              | n/a              |
+|  filmDS            | n/a                  | n/a             | ??               |
 |  filmGMERLIN       | ??                   | ??              | ??               |
 |  filmMPEG1         | ??                   | ??              | ??               |
 |  filmMPEG3         | ??                   | ??              | ??               |
-|  filmQT            | ??                   | ??              | ??               |
-|  filmQT4L          | ??                   | ??              | ??               |
+|  filmQT            | n/a                  | ??              | ??               |
+|  filmQT4L          | ??                   | n/a             | n/a              |
 |  filmTEST¹         | ??                   | ??              | ??               |
 
 # image plugins
@@ -23,7 +23,7 @@ plugin compatibility matrix
 | ------------------ |:--------------------:|:---------------:|:----------------:|
 |  imageJPEG         | ??                   | ??              | ??               |
 |  imageMAGICK       | ??                   | ??              | ??               |
-|  imageQT           | ??                   | ??              | ??               |
+|  imageQT           | n/a                  | ??              | ??               |
 |  imageSGI          | ??                   | ??              | ??               |
 |  imageTIFF         | ??                   | ??              | ??               |
 
@@ -40,30 +40,30 @@ note: currently all model-loading plugins are broken (at least for multicontext 
 
 | *plugin*           | linux (Debian/64bit) | OSX (10.9/6bit) | W7 (32bit/MinGW) |
 | ------------------ |:--------------------:|:---------------:|:----------------:|
-|  recordQT          | ??                   | ??              | ??               |
-|  recordQT4L        | ??                   | ??              | ??               |
-|  recordV4L         | ??                   | ??              | ??               |
-|  recordV4L2        | ??                   | ??              | ??               |
+|  recordQT          | n/a                  | ??              | ??               |
+|  recordQT4L        | ??                   | n/a             | n/a              |
+|  recordV4L         | ??                   | n/a             | n/a              |
+|  recordV4L2        | ??                   | n/a             | n/a              |
 
 # video plugins
 
 | *plugin*           | linux (Debian/64bit) | OSX (10.9/6bit) | W7 (32bit/MinGW) |
 | ------------------ |:--------------------:|:---------------:|:----------------:|
 |  videoAVT          | ??                   | ??              | ??               |
-|  videoDarwin       | ??                   | ??              | ??               |
+|  videoDarwin       | n/a                  | ??              | n/a              |
 |  videoDC1394       | ??                   | ??              | ??               |
-|  videoDS           | ??                   | ??              | ??               |
-|  videoDV4L         | ??                   | ??              | ??               |
+|  videoDS           | n/a                  | n/a             | ??               |
+|  videoDV4L         | ??                   | n/a             | n/a              |
 |  videoHALCON       | ??                   | ??              | ??               |
 |  videoOptiTrack    | ??                   | ??              | ??               |
 |  videoPYLON        | ??                   | ??              | ??               |
-|  videoQTKit        | ??                   | ??              | ??               |
-|  videoSGI          | ??                   | ??              | ??               |
+|  videoQTKit        | n/a                  | ??              | n/a              |
+|  videoSGI          | n/a                  | n/a             | ??               |
 |  videoTEST¹        | ??                   | ??              | ??               |
 |  videoUNICAP       | ??                   | ??              | ??               |
-|  videoV4L          | ??                   | ??              | ??               |
-|  videoV4L2         | ??                   | ??              | ??               |
-|  videoVFW          | ??                   | ??              | ??               |
+|  videoV4L          | ??                   | n/a             | n/a              |
+|  videoV4L2         | ??                   | n/a             | n/a              |
+|  videoVFW          | n/a                  | n/a             | ??               |
 |  videoVLC          | ??                   | ??              | ??               |
 
 
