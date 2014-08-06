@@ -170,6 +170,19 @@ gem_videoVFW.dll
 gemw32window.dll
 ~~~
 
+#### Problems
+At time of writing, the `modelOBJ` plugin is known to fail the build.
+For now, you can ignore this.
+
+In order to complete the built despite this error, use
+
+~~~bash
+make -k
+~~~
+
+
+### Try it
+
 When trying out the so-created binary within Pd, you might get an error about missing dynamic libraries.
 
 To solve this, locate the given library and copy it next to the `Gem.dll`.
@@ -182,6 +195,11 @@ Some libraries I needed to copy:
 - pthreadGC2.dll
 - libfreetype-6.dll
 - libftgl-2.dll
+
+
+## enabling more plugins
+
+Enabling plugins needs to happen right before *compiling* Gem (or the respective plugins).
 
 
 ### VLC - grab images using libVLC
