@@ -1,6 +1,8 @@
 plugin compatibility matrix
 ====
 
+this page contains a tabular list of the availability of plugins, depending on the various build systems.
+
 # film plugins
 
 | *plugin*           | linux (Debian/64bit) | OSX (10.9/6bit) | W7 (32bit/MinGW) |
