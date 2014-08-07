@@ -1,5 +1,10 @@
-filmTEST - testing movie loader
+filmTEST
 ===
+
+testing movie loader
+
+# Description
+
 
 This plugin does not really load a movie,
 but instead generates some test image.

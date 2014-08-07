@@ -1,2 +1,4 @@
-videoOptiTrack - video grabber using OptiTrack (W32)
+videoOptiTrack
 ===
+
+video grabber using OptiTrack (W32)

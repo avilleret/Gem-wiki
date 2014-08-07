@@ -1,2 +1,4 @@
-filmAVIPLAY - movie loader using libAVIPLAY
+filmAVIPLAY
 ===
+
+movie loader using libAVIPLAY

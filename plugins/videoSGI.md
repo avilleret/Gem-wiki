@@ -1,5 +1,10 @@
-videoSGI - video grabber for SGIs
+videoSGI
 ===
+
+video grabber for SGIs
+
+# Description
+
 
 This plugin should access the cameras of *old* SGI/irix machines,
 like the **Indy** or the **O2**.

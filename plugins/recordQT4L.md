@@ -1,2 +1,4 @@
-recordQT4L - movie output using quicktime4linux
+recordQT4L
 ===
+
+movie output using quicktime4linux

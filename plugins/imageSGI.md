@@ -1,2 +1,4 @@
-imageSGI - image loader/saver for SGI-images
+imageSGI
 ===
+
+image loader/saver for SGI-images

@@ -1,2 +1,4 @@
-imageJPEG - image loader/saver using libJPEG
+imageJPEG
 ===
+
+image loader/saver using libJPEG

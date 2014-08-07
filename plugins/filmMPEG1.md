@@ -1,2 +1,4 @@
-filmMPEG1 - movie loader using libMPEG1
+filmMPEG1
 ===
+
+movie loader using libMPEG1

@@ -1,5 +1,10 @@
-modelASSIMP2 - 3D model loader using libASSIMP2
+modelASSIMP2
 ===
+
+3D model loader using libASSIMP2
+
+# Description
+
 
 ### note
 

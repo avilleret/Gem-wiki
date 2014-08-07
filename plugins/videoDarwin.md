@@ -1,2 +1,4 @@
-videoDarwin - video grabber using Cocoa/QuickTime (OSX)
+videoDarwin
 ===
+
+video grabber using Cocoa/QuickTime (OSX)

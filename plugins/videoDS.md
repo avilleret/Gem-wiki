@@ -1,2 +1,4 @@
-videoDS - video grabber using DirectShow (W32)
+videoDS
 ===
+
+video grabber using DirectShow (W32)

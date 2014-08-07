@@ -1,2 +1,4 @@
-videoPYLON - video grabber using PYLON
+videoPYLON
 ===
+
+video grabber using PYLON

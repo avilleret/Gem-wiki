@@ -1,2 +1,4 @@
-videoVFW - video grabber using VideoForWindows (W32)
+videoVFW
 ===
+
+video grabber using VideoForWindows (W32)

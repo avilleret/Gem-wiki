@@ -1,2 +1,4 @@
-filmAVFoundation - movie loader using AVFoundation-framework (OSX)
+filmAVFoundation
 ===
+
+movie loader using AVFoundation-framework (OSX)

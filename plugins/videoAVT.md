@@ -1,2 +1,4 @@
-videoAVT - video grabber using AVT
+videoAVT
 ===
+
+video grabber using AVT

@@ -1,2 +1,4 @@
-filmAVI - AVI movie loader (W32)
+filmAVI
 ===
+
+AVI movie loader (W32)

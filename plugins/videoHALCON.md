@@ -1,2 +1,4 @@
-videoHALCON - video grabber using HALCON
+videoHALCON
 ===
+
+video grabber using HALCON
