@@ -45,7 +45,7 @@ expected side-effects:
 ### Gem
 
 Obviously you will need the Gem sources, to compile it.
-See the [other WIKI pages](How-to-build-Gem-on-Microsoft-Windows) where to find it.
+See the [other WIKI pages](Getting-Sources) where to find it.
 
 I put the sources into `~/src/puredata/externals/Gem`.
 
