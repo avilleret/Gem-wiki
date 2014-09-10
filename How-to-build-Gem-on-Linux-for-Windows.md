@@ -199,10 +199,13 @@ To solve this, locate the given library and copy it next to the `Gem.dll`.
 
 Some libraries I needed to copy:
 
-- libgcc_s_dw2-1.dll
-- libstdc++-6.dll
+- `libgcc_s_sjlj-1.dll`
+- `libstdc++-6.dll`
+<!---
 - pthreadGC2.dll
 - libfreetype-6.dll
 - libftgl-2.dll
+-->
 
-
+A good starting place (at least on Debian) is
+    /usr/lib/gcc/i686-w64-mingw32/4.9-win32/
