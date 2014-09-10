@@ -41,6 +41,13 @@ expected side-effects:
 - Pd won't start without this dll.
 - using MinGW-W64's `msvcrt.dll` might crash Pd.
 
+In any case, if you want to use the `pd.exe` in this directory, you have to restore this library before running Pd.
+
+In practice I haven't found this a problem, as
+- when building, I use a local copy of Pd extracted to `~/lib/W32/pd/bin/pd.exe` on my linux partition.
+- when running Pd/Gem, I use a Pd-installation in `C:\Program Files\pd\bin\pd.exe` on my W32 partition.
+
+Since the two are not the same, disabling `msvcrt.dll` in the build-environment, does no harm to the runtime environment.
 
 ### Gem
 
