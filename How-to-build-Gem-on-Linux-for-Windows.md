@@ -108,9 +108,10 @@ In `${HOME}/lib/W32/usr/lib/libftgl.la`, you have to replace `/usr/local/lib/lib
 `${HOME}/lib/W32/usr/lib/libfreetype.la` (replace `${HOME}` with your real home-directory).
 E.g.
 
-    sed -e "s|/usr/local/lib/|${HOME}/lib/W32/usr/lib/|" \
-	    -i ${HOME}/lib/W32/usr/lib/libftgl.la
-
+~~~bash
+sed -e "s|/usr/local/lib/|${HOME}/lib/W32/usr/lib/|" \
+    -i ${HOME}/lib/W32/usr/lib/libftgl.la
+~~~
 Since we will do *dynamic* linking, we also need to put the dll's we just created into a place where W32 will find them.
 A good start is, the directory where the Gem-binary will live (the root of the Gem sources):
 
