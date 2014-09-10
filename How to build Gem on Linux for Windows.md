@@ -1,0 +1,212 @@
+How to build Gem on Linux for Microsoft Windows using MinGW64
+=============================================================
+
+
+This document describes how to cross-compile Gem on Linux for W32 using [MinGW-W64](http://mingw-w64.sourceforge.net/)
+
+
+## Requirements
+
+### Tool chain
+
+#### MinGW-W64
+
+Install `MinGW-W64` for your distribution.
+
+I'm using *Debian* (testing/unstable), so I can simply do:
+
+    # aptitude install mingw-w64 mingw-w64-tools mingw-w64-i686-dev
+
+This might also install a number of programs you don't need, including `FORTRAN` and `ADA` compilers.
+You can uninstall them if you don't like them (or if you want to save a few MByte).
+
+### Pure Data
+
+You need the Pure Data sources to build Gem, either Pd-vanilla or Pd-Extended.
+The easiest way is to download a zip for Windows from [http://puredata.info/downloads](http://puredata.info/downloads).
+Then unpack it.
+
+I installed Pd-vanilla and unzipped it into
+    ~/lib/W32/
+with `~` being my `${HOME}`-directory.
+So the actual `pd.exe` can be found as `~/lib/W32/pd/bin/pd.exe`).
+I will use this path in the rest of the tutorial.
+
+#### runtime library
+`msvcrt.dll` from Pd/bin/ conflicts with the one used by MinGW-W64.
+For now i just disabled the one provided by Pd by renaming it to `.../pd/bin/msvcrt.dll_`
+
+**LATER** check about the implications of this.
+expected side-effects:
+- Pd won't start without this dll.
+- using MinGW-W64's `msvcrt.dll` might crash Pd.
+
+
+### Gem
+
+Obviously you will need the Gem sources, to compile it.
+See the [other WIKI pages](How-to-build-Gem-on-Microsoft-Windows) where to find it.
+
+I put the sources into `~/src/puredata/externals/Gem`.
+
+
+### third party libraries
+Gem has a plugin system which adds lot's of functionalities depending on the installed libraries.
+
+You will need to have these libraries installed when building Gem, in order to be able to use them.
+
+
+**TODO: rewrite this entire section, it is of limited use when cross-compiling**
+
+#### FTGL
+
+For text rendering, the *FTGL* library is required.
+If you don't need text display within Gem, you can skip this part, and add `--without-ftgl` to the *configure* flags.
+
+Download [freetype](http://sourceforge.net/projects/freetype/) (2.5.3) and [FTGL](http://sourceforge.net/projects/ftgl) (2.1.3-rc5) and extract them (I extracted them to `C:\Users\umlaeute\Development\3rdparty`, which is `~/src/3rdparty` on MinGW).
+
+Then build them.
+
+The *freetype2* build system will tell you (when running configure) that it detected "unix" as your system.
+While this is not strictly true, just ignore it.
+
+~~~bash
+cd ~/src/3rdparty/freetype-2.5.3/
+./configure
+make install
+~~~
+
+After installing freetype2, we can build *FTGL*. 
+We have to do a few hacks in order to make FTGL recognize the W32-names of the the OpenGL libraries (which are called `libopengl32` resp. `libglu32`, instead of the `libGL` and `libGLU` as found on un*x systems).
+
+I hacked together a replacement for `m4/gl.m4`, which you can get [here](https://gist.github.com/umlaeute/044e2b501cd41198ecad). Get the file and copy it into `ftgl-2.1.3~rc5/m4/`, replacing the existing file.
+Then run:
+
+~~~bash
+$ cd ~/src/3rdparty/ftgl-2.1.3~rc5/
+$ ./autogen.sh
+$ ./configure --with-gl-lib="-lglu32 -lopengl32"
+$ make install
+~~~
+
+Since we will do *dynamic* linking, we need to put the dll's we just created into a place where W32 will find them.
+A good start is, the directory where the Gem-binary will live (the root of the Gem sources):
+
+~~~bash
+$ cp /usr/local/bin/libfreetype*.dll ~/src/GitHub/Gem/
+$ cp /usr/local/bin/libftgl*.dll     ~/src/GitHub/Gem/
+~~~
+
+
+## Building process
+
+MinGW-W64 allows us to use the autotools.
+
+For the following steps, I will assume that you have changed your working directory to the Gem root folder:
+
+~~~bash
+$ cd ~/src/puredata/externals/Gem/
+~~~
+
+### autogen.sh
+If you have cloned the git repository,
+you have to build the building tool yourself:
+
+~~~bash
+$ ./autogen.sh
+~~~
+
+### configure
+Next we need to run `configure` in order to detect all installed libraries and setup the build chain:
+
+~~~bash
+$ export ac_cv_func_malloc_0_nonnull=yes
+$ ./configure                      \
+      --host=i686-w64-mingw32      \
+      --without-ALL                \
+      --with-pd=${HOME}/lib/W32/pd \
+      --with-vfw32
+~~~
+
+The `--host` option specifies the target architecture (i686-CPU (32bit!), Windows, using the mingw toolchain).
+The `--with-pd` option tells `configure` where to find Pd (headers and libraries).
+The `--without-ALL` option disables the use of all (optional) libraries (for now; when cross-compiling, some libraries get wrongly detected to be available).
+The `--with-vfw32` option turns on video-capturing via the olde video-for-windows API.
+
+
+#### malloc
+When cross-compiling, autotools assumes that `malloc` is not GNU-compatible,
+and does some `#define` trickery, which fails badly on C++.
+Luckily, there's a trick to force autotools into believing that malloc is fine.
+Run this before running `./configure`:
+
+    $ export ac_cv_func_malloc_0_nonnull=yes
+
+### Build
+
+Finally start the build by running:
+
+~~~bash
+$ make
+~~~
+
+This will take a while.
+
+If all went well, you should now have a `Gem.dll` in your directory, and hopefully a number of Gem-output externals and plugins:
+
+~~~bash
+$ ls *.dll
+Gem.dll
+gem_filmAVI.dll
+gem_filmDS.dll
+gem_imageSGI.dll
+gem_videoVFW.dll
+gemw32window.dll
+~~~
+
+#### separate sources and build
+If you want (like me) to use the same source-tree for multiple configurations (e.g. for building both a linux and a w32 version of Gem), you can easily do so by running  `configure` and `make` steps in a separate directory.
+
+~~~bash
+.../Gem$ mkdir build-w32
+.../Gem$ cd build-w32
+.../Gem/build-w32$ ac_cv_func_malloc_0_nonnull=yes ./configure                      \
+                                      --host=i686-w64-mingw32      \
+									  --without-ALL                \
+									  --with-pd=${HOME}/lib/W32/pd \
+									  --with-vfw32
+.../Gem/build-w32$ make
+~~~
+
+
+
+#### Problems
+At time of writing, the `modelOBJ` plugin is known to fail the build.
+For now, you can ignore this.
+
+In order to complete the built despite this error, use
+
+~~~bash
+make -k
+~~~
+
+
+### Try it
+
+When trying out the so-created binary within Pd, you might get an error about missing dynamic libraries.
+
+To solve this, locate the given library and copy it next to the `Gem.dll`.
+
+Some libraries I needed to copy:
+
+- `libgcc_s_sjlj-1.dll`
+- `libstdc++-6.dll`
+
+<!---
+- pthreadGC2.dll
+- libfreetype-6.dll
+- libftgl-2.dll
+-->
+
+A good starting place (at least on Debian) is
+    /usr/lib/gcc/i686-w64-mingw32/4.9-win32/
