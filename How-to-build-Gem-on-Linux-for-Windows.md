@@ -105,10 +105,11 @@ $ make install
 Unfortunately `libfreetype2` (or is it `ftgl`??)
 handles an our `--prefix` argument badly, so we need to fix some things.
 In `${HOME}/lib/W32/usr/lib/libftgl.la`, you have to replace `/usr/local/lib/libfreetype.la` in the `dependency_libs` section with
-`${HOME}/lib/W32/usr/lib/libfreetype.la` (replac `${HOME}` with your real home-directory).
+`${HOME}/lib/W32/usr/lib/libfreetype.la` (replace `${HOME}` with your real home-directory).
 E.g.
 
-    sed -e "s|/usr/local/lib/|${HOME}/lib/W32/usr/lib/|" -i ${HOME}/lib/W32/usr/lib/libftgl.la
+    sed -e "s|/usr/local/lib/|${HOME}/lib/W32/usr/lib/|" \
+	    -i ${HOME}/lib/W32/usr/lib/libftgl.la
 
 Since we will do *dynamic* linking, we also need to put the dll's we just created into a place where W32 will find them.
 A good start is, the directory where the Gem-binary will live (the root of the Gem sources):
@@ -234,7 +235,7 @@ Some libraries I needed to copy:
 - pthreadGC2.dll
 -->
 
-A good starting places (at least on Debian) are
+Good starting places (at least on Debian) are
 
 - `/usr/lib/gcc/i686-w64-mingw32/4.9-win32/`
 - `~/lib/W32/usr/bin/`
