@@ -209,4 +209,5 @@ Some libraries I needed to copy:
 -->
 
 A good starting place (at least on Debian) is
+
     /usr/lib/gcc/i686-w64-mingw32/4.9-win32/
