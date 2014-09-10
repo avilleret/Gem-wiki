@@ -86,7 +86,7 @@ $ ./configure --host=i686-w64-mingw32 \
 $ make install
 ~~~
 
-After installing freetype2 (onto some local directory withing `~/lib/W32`), we can build *FTGL*. 
+After installing freetype2 (into some local directory within `~/lib/W32`), we can build *FTGL*. 
 We have to do a few hacks in order to make FTGL recognize the W32-names of the the OpenGL libraries (which are called `libopengl32` resp. `libglu32`, instead of the `libGL` and `libGLU` as found on un*x systems).
 
 I hacked together a replacement for `m4/gl.m4`, which you can get [here](https://gist.github.com/umlaeute/044e2b501cd41198ecad). Get the file and copy it into `ftgl-2.1.3~rc5/m4/`, replacing the existing file.
