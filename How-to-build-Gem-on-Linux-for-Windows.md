@@ -5,15 +5,6 @@ How to build Gem on Linux for Microsoft Windows using MinGW64
 This document describes how to cross-compile Gem on Linux for W32 using [MinGW-W64](http://mingw-w64.sourceforge.net/)
 
 
-# notes while i go
-
-## malloc
-when cross-compiling, autotools assumes that `malloc` is not GNU-compatible,
-and does some define trickery, which fails badly on C++.
-here's a trick to force autotools into believing that malloc is fine:
-
-    $ ac_cv_func_malloc_0_nonnull=yes ./config.status --recheck
-
 ## Requirements
 
 ### Tool chain
@@ -129,17 +120,27 @@ $ ./autogen.sh
 Next we need to run `configure` in order to detect all installed libraries and setup the build chain:
 
 ~~~bash
-$ ac_cv_func_malloc_0_nonnull=yes ./configure                      \
-                                      --host=i686-w64-mingw32      \
-									  --without-ALL                \
-									  --with-pd=${HOME}/lib/W32/pd \
-									  --with-vfw32
+$ export ac_cv_func_malloc_0_nonnull=yes
+$ ./configure                      \
+      --host=i686-w64-mingw32      \
+      --without-ALL                \
+      --with-pd=${HOME}/lib/W32/pd \
+      --with-vfw32
 ~~~
 
 The `--host` option specifies the target architecture (i686-CPU (32bit!), Windows, using the mingw toolchain).
 The `--with-pd` option tells `configure` where to find Pd (headers and libraries).
 The `--without-ALL` option disables the use of all (optional) libraries (for now; when cross-compiling, some libraries get wrongly detected to be available).
 The `--with-vfw32` option turns on video-capturing via the olde video-for-windows API.
+
+
+#### malloc
+When cross-compiling, autotools assumes that `malloc` is not GNU-compatible,
+and does some `#define` trickery, which fails badly on C++.
+Luckily, there's a trick to force autotools into believing that malloc is fine.
+Run this before running `./configure`:
+
+    $ export ac_cv_func_malloc_0_nonnull=yes
 
 ### Build
 
