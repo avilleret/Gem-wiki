@@ -70,20 +70,23 @@ You will need to have these libraries installed when building Gem, in order to b
 For text rendering, the *FTGL* library is required.
 If you don't need text display within Gem, you can skip this part, and add `--without-ftgl` to the *configure* flags.
 
-Download [freetype](http://sourceforge.net/projects/freetype/) (2.5.3) and [FTGL](http://sourceforge.net/projects/ftgl) (2.1.3-rc5) and extract them (I extracted them to `C:\Users\umlaeute\Development\3rdparty`, which is `~/src/3rdparty` on MinGW).
+Download [freetype](http://sourceforge.net/projects/freetype/) (2.5.3) and [FTGL](http://sourceforge.net/projects/ftgl) (2.1.3-rc5) and extract them (I extracted them to `~/lib/W32`).
 
 Then build them.
 
 The *freetype2* build system will tell you (when running configure) that it detected "unix" as your system.
 While this is not strictly true, just ignore it.
+I also disabled `png` support, as `./configure` wrongly detected my *linux* PNG-library.
 
 ~~~bash
-cd ~/src/3rdparty/freetype-2.5.3/
-./configure
-make install
+$ cd ~/lib/W32/
+$ ./configure --host=i686-w64-mingw32 \
+        --prefix=${HOME}/lib/W32/usr  \
+        --without-png
+$ make install
 ~~~
 
-After installing freetype2, we can build *FTGL*. 
+After installing freetype2 (onto some local directory withing `~/lib/W32`), we can build *FTGL*. 
 We have to do a few hacks in order to make FTGL recognize the W32-names of the the OpenGL libraries (which are called `libopengl32` resp. `libglu32`, instead of the `libGL` and `libGLU` as found on un*x systems).
 
 I hacked together a replacement for `m4/gl.m4`, which you can get [here](https://gist.github.com/umlaeute/044e2b501cd41198ecad). Get the file and copy it into `ftgl-2.1.3~rc5/m4/`, replacing the existing file.
@@ -92,16 +95,27 @@ Then run:
 ~~~bash
 $ cd ~/src/3rdparty/ftgl-2.1.3~rc5/
 $ ./autogen.sh
-$ ./configure --with-gl-lib="-lglu32 -lopengl32"
+$ ./configure --host=i686-w64-mingw32      \
+        --prefix=${HOME}/lib/W32/usr       \
+		--with-gl-lib="-lglu32 -lopengl32" \
+		--with-ft-prefix=${HOME}/lib/W32/usr 
 $ make install
 ~~~
 
-Since we will do *dynamic* linking, we need to put the dll's we just created into a place where W32 will find them.
+Unfortunately `libfreetype2` (or is it `ftgl`??)
+handles an our `--prefix` argument badly, so we need to fix some things.
+In `${HOME}/lib/W32/usr/lib/libftgl.la`, you have to replace `/usr/local/lib/libfreetype.la` in the `dependency_libs` section with
+`${HOME}/lib/W32/usr/lib/libfreetype.la` (replac `${HOME}` with your real home-directory).
+E.g.
+
+    sed -e "s|/usr/local/lib/|${HOME}/lib/W32/usr/lib/|" -i ${HOME}/lib/W32/usr/lib/libftgl.la
+
+Since we will do *dynamic* linking, we also need to put the dll's we just created into a place where W32 will find them.
 A good start is, the directory where the Gem-binary will live (the root of the Gem sources):
 
 ~~~bash
-$ cp /usr/local/bin/libfreetype*.dll ~/src/GitHub/Gem/
-$ cp /usr/local/bin/libftgl*.dll     ~/src/GitHub/Gem/
+$ cp ~/lib/W32/usr/bin/libfreetype*.dll ~/src/puredata/externals/Gem/
+$ cp ~/lib/W32/usr/bin/libftgl*.dll     ~/src/puredata/externals/Gem/
 ~~~
 
 
@@ -132,6 +146,9 @@ $ ./configure                      \
       --host=i686-w64-mingw32      \
       --without-ALL                \
       --with-pd=${HOME}/lib/W32/pd \
+	  --with-ftgl                  \
+	  --with-ftgl-cflags="-I${HOME}/lib/W32/usr/include -I${HOME}/lib/W32/usr/include/freetype2" \
+	  --with-ftgl-libs="-L${HOME}/lib/W32/usr/lib -lftgl"  \
       --with-vfw32
 ~~~
 
@@ -139,6 +156,7 @@ The `--host` option specifies the target architecture (i686-CPU (32bit!), Window
 The `--with-pd` option tells `configure` where to find Pd (headers and libraries).
 The `--without-ALL` option disables the use of all (optional) libraries (for now; when cross-compiling, some libraries get wrongly detected to be available).
 The `--with-vfw32` option turns on video-capturing via the olde video-for-windows API.
+The `--with-ftgl` options turn on font rendering support (according to how we compiled freetype2/ftgl; see above)
 
 
 #### malloc
@@ -208,13 +226,15 @@ Some libraries I needed to copy:
 
 - `libgcc_s_sjlj-1.dll`
 - `libstdc++-6.dll`
+- `libfreetype-6.dll`
+- `libftgl-2.dll`
+
 
 <!---
 - pthreadGC2.dll
-- libfreetype-6.dll
-- libftgl-2.dll
 -->
 
-A good starting place (at least on Debian) is
+A good starting places (at least on Debian) are
 
-    /usr/lib/gcc/i686-w64-mingw32/4.9-win32/
+- `/usr/lib/gcc/i686-w64-mingw32/4.9-win32/`
+- `~/lib/W32/usr/bin/`
