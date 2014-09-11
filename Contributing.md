@@ -37,13 +37,6 @@ Issues are collected online in several issue-trackers:
 
 - [Feature Requests](https://sourceforge.net/p/pd-gem/feature-requests) (SourceForge) - this is where most end-users report their feature requests
 
-# Coding Style
-
-Gem's Coding style is not very formalized.
-However, there are some implicit assumptions.
-
-There is a [draft document](https://github.com/umlaeute/Gem/blob/master/doc/CodingStyle.txt)
-that tries to sum up the current practice.
 
 # Getting your changes into Gem
 
@@ -131,3 +124,17 @@ e.g.
     $ tar cvzf /tmp/nifty_feature.tgz *.patch
 
 Alternatively you can also use `git send-email` tor automatically sending the patch-set as multiple emails.
+
+# Coding Style
+
+Gem's Coding style is not very formalized.
+However, there are some implicit assumptions.
+
+There is a [draft document](https://github.com/umlaeute/Gem/blob/master/doc/CodingStyle.txt)
+that tries to sum up the current practice.
+
+
+# Questions?
+
+If you still have questions, please ask them on the gem-dev mailinglist:
+   http://lists.puredata.info/listinfo/gem-dev
