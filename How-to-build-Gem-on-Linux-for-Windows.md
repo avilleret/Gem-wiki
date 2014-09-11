@@ -59,11 +59,13 @@ I put the sources into `~/src/puredata/externals/Gem`.
 
 ### third party libraries
 Gem has a plugin system which adds lot's of functionalities depending on the installed libraries.
-
 You will need to have these libraries installed when building Gem, in order to be able to use them.
 
+Here we briefly discuss the use of some (optional) 3rd-party libraries that change the behaviour of the entire Gem system.
+Also have a look at the [plugins](#plugins) section for adding even more functionality depending on 3rd-party libraries.
 
-**TODO: rewrite this entire section, it is of limited use when cross-compiling**
+
+
 
 #### FTGL
 
@@ -119,6 +121,11 @@ A good start is, the directory where the Gem-binary will live (the root of the G
 $ cp ~/lib/W32/usr/bin/libfreetype*.dll ~/src/puredata/externals/Gem/
 $ cp ~/lib/W32/usr/bin/libftgl*.dll     ~/src/puredata/externals/Gem/
 ~~~
+
+#### fribidi
+In order to (properly) display text that does not have the default left-to-right flow
+(e.g. Hebrew and/or Arabic texts), you need the GNU [FriBidi](http://www.fribidi.org) library.
+
 
 
 ## Building process
@@ -239,3 +246,8 @@ Good starting places (at least on Debian) are
 
 - `/usr/lib/gcc/i686-w64-mingw32/4.9-win32/`
 - `~/lib/W32/usr/bin/`
+
+
+## plugins
+
+**TODO**
