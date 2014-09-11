@@ -143,7 +143,6 @@ $ ./autogen.sh
 Next we need to run `configure` in order to detect all installed libraries and setup the build chain:
 
 ~~~bash
-$ export ac_cv_func_malloc_0_nonnull=yes
 $ ./configure                      \
       --host=i686-w64-mingw32      \
       --without-ALL                \
@@ -197,11 +196,11 @@ If you want (like me) to use the same source-tree for multiple configurations (e
 ~~~bash
 .../Gem$ mkdir build-w32
 .../Gem$ cd build-w32
-.../Gem/build-w32$ ac_cv_func_malloc_0_nonnull=yes ./configure                      \
-                                      --host=i686-w64-mingw32      \
-									  --without-ALL                \
-									  --with-pd=${HOME}/lib/W32/pd \
-									  --with-vfw32
+.../Gem/build-w32$ ./configure                        \
+                         --host=i686-w64-mingw32      \
+						 --without-ALL                \
+						 --with-pd=${HOME}/lib/W32/pd \
+						 --with-vfw32
 .../Gem/build-w32$ make
 ~~~
 
