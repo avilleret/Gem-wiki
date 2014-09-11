@@ -251,3 +251,25 @@ Good starting places (at least on Debian) are
 ## plugins
 
 **TODO**
+
+### videoVLC
+
+[VideoLAN's VLC](http://www.videolan.org/vlc/) comes with an SDK.
+(Unfortunately it seems that only the `.exe` installer includes the SDK, not the `.zip` package).
+Installed `VLC` on your W32 partition, and copy the `sdk` folder (as found in `%ProgramFiles%/VideoLAN/VLC/sdk`)
+as `${HOME}/lib/W32/VLC/sdk` to your linux partition.
+
+When running Gem's `configure`, add something like the following to the configure-flags:
+
+~~~bash
+    $ ./configure \
+       --with-libvlc \
+       --with-libvlc-cflags="-I${HOME}/lib/W32/VLC/sdk/include" \
+       --with-libvlc-libs="-L${HOME}/lib/W32/VLC/sdk/lib -lvlc" \
+    #...
+~~~
+
+After compilation, copy the following files from `%ProgramFiles%/VideoLAN/VLC/` next to your `Gem.dll`:
+
+- `libvlc.dll`
+- `libvlccore.dll`
