@@ -256,7 +256,7 @@ Good starting places (at least on Debian) are
 
 [VideoLAN's VLC](http://www.videolan.org/vlc/) comes with an SDK.
 (Unfortunately it seems that only the `.exe` installer includes the SDK, not the `.zip` package).
-Installed `VLC` on your W32 partition, and copy the `sdk` folder (as found in `%ProgramFiles%/VideoLAN/VLC/sdk`)
+Install `VLC` on your W32 partition, and copy the `sdk` folder (as found in `%ProgramFiles%/VideoLAN/VLC/sdk`)
 as `${HOME}/lib/W32/VLC/sdk` to your linux partition.
 
 When running Gem's `configure`, add something like the following to the configure-flags:
@@ -273,3 +273,30 @@ After compilation, copy the following files from `%ProgramFiles%/VideoLAN/VLC/` 
 
 - `libvlc.dll`
 - `libvlccore.dll`
+
+
+### QuickTime
+
+As of 2015, the [QuickTime for Windows SDK](https://developer.apple.com/quicktime/) can still be downloaded from apple's website
+(you need an *appleid* for that - iirc you need to be registered as a developer).
+
+Install the SDK on your W32 partition, and copy it as `${HOME}/lib/W32/QuickTime` to your linux partition.
+
+~~~bash
+$ QT_CFLAGS="-I${HOME}/lib/W32/QuickTime/CIncludes"
+$ QT_LFLAGS="-I${HOME}/lib/W32/QuickTime/Libraries -lQTMLClient"
+$ for i in filmQT imageQT recordQT
+do
+ pushd plugins/${i}
+ make \
+    CPPFLAGS="${QT_CFLAGS}"                                                  \
+	LIBS="${QT_LFLAGS} $(egrep '^LIBS = ' Makefile | sed -e 's|^LIBS = ||')" \
+	pkglib_LTLIBRARIES=gem_${i}.la                                           \
+	am_gem_${i}_la_rpath="-rpath '\$(pkglibdir)'"
+ popd
+done
+$
+
+~~~
+
+You will *also* need to install [QuickTime for Windows](http://support.apple.com/kb/DL837) on the W32 machine, in order to use the plugins.
