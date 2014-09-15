@@ -52,7 +52,7 @@ note: currently all model-loading plugins are broken (at least for multicontext 
 
 | *plugin*                         | linux (Debian/64bit) | OSX (10.9/6bit) | W7 (32bit/MinGW) | W7 (32bit/MSVC)² |
 | -------------------------------- |:--------------------:|:---------------:|:----------------:|:----------------:|
-|  [videoAVT](videoAVT)            | ?OK? (current??)     | n/a             | ??               | ??               |
+|  [videoAVT](videoAVT)            | ?OK? (current??)     | n/a             | ??               | build and load but no device to test|
 |  [videoDarwin](videoDarwin)      | n/a                  | ??              | n/a              | n/a              |
 |  [videoDC1394](videoDC1394)      | OK                   | ??              | ??               | ??               |
 |  [videoDS](videoDS)              | n/a                  | n/a             | ??               | ??               |
