@@ -127,7 +127,7 @@ You need libjpeg:
 Download the _Developer files_ and extract it. Adjust the `LIBJPEG_DIR` macro in the *JPEG
 properties sheet* to point where you extracted the files (e.g. `C:\Users\win7\Bibliothèques\jpeg-6b-4-lib`).
 
-### imageTIFF – load still image with libtiff
+### [imageTIFF](imageTIFF) – load still image with libtiff
 
 You need the libtiff for Windows. Choose the _Developer files_
 here: [http://gnuwin32.sourceforge.net/packages/tiff.htm](http://gnuwin32.sourceforge.net/packages/tiff.htm).
@@ -140,10 +140,19 @@ You need the ARToolkit library for Windows:
 The Windows binary release contains all what you need. Adjust the
 `ARTOOLKIT_DIR` variable in *ARToolkit properties sheet*.
 
-### videoHALCON - grab image with the non-free Halcon library (GigE cameras)
+### [videoHALCON](videoHALCON) - grab image with the non-free Halcon library (GigE cameras)
 
 Download Halcon v10 library here: [http://www.halcon.com/halcon/download/](http://www.halcon.com/halcon/download/).
 
 Choose the *HALCON 10.0.4 full version for Windows XP / 2003 / Vista / 2008 / 7 for SSE2.*
 The HALCON installer sets the environment variable `HALCONROOT` thus there should be nothing to adjust in the properties sheet.
+
+### [videoAVT](videoAVT) - grab image from Allied Vision Technologies GigE cameras
+
+Download and install the legacy AVT PvAPI SDK for GigE vision cameras.
+Then update the variable `AVT_GIGESDK` in the `AVT_PvAPI` properties sheet to point to the installation directory.
+
+Once you've build it, you'll need to add `PvAPI.dll` besides `pd.exe`.
+
+
 
