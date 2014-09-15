@@ -97,11 +97,11 @@ Now you will be able to generate at least the Gem project.
 
 To build plug-ins, you will need several additional libraries.
 
-### filmAVI – play films with Video for Windows
+### [filmAVI](filmAVI) – play films with Video for Windows
 
 This plug-in should build without any additional library.
 
-### filmDS – play films with Direct Show
+### [filmDS](filmDS) – play films with Direct Show
 
 You need the Microsoft Windows SDK: [http://msdn.microsoft.com/en-US/windows/desktop/bb980924](http://msdn.microsoft.com/en-US/windows/desktop/bb980924).
 Some files lack in the one that comes with Visual C++ 2010 Express.
@@ -111,7 +111,7 @@ Get the one compatible with your IDE (7.1,0 for me)
 
 Update the macros in the *DirectShow properties sheet*.
 
-### filmQT – play films with QuickTime
+### [filmQT](filmQT) – play films with QuickTime
 
 You need the *QuickTime SDK for Windows*:
 [https://developer.apple.com/quicktime/](https://developer.apple.com/quicktime/)
@@ -119,7 +119,7 @@ You need the *QuickTime SDK for Windows*:
 
 If you install it in the default location ("`C:\Program Files`") you don't need to adjust any path.
 
-### imageJPEG – load still image with libjpeg
+### [imageJPEG](imageJPEG) – load still image with libjpeg
 
 You need libjpeg:
 [http://gnuwin32.sourceforge.net/packages/jpeg.htm](http://gnuwin32.sourceforge.net/packages/jpeg.htm)
