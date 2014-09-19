@@ -153,11 +153,11 @@ Enabling plugins needs to happen right before *compiling* Gem (or the respective
 
 Get [VLC](http://videolan.org) and install it (I assume it is installed into `/Applications/VLC.app`).
 
-Unfortunately, VLC is not automatically detected, so you have to tell configure about it, by exporting the following environment-variables before running `./configure`:
+Unfortunately, VLC is not automatically detected, so you have to tell `configure` about it, by adding the following flags when running `./configure`:
 
 ~~~bash
-export PKG_LIBVLC_CFLAGS="-I/Applications/VLC.app/Contents/MacOS/include"
-export PKG_LIBVLC_LIBS="-L/Applications/VLC.app/Contents/MacOS/lib -lvlc"
+   --with-libvlc-CFLAGS="-I/Applications/VLC.app/Contents/MacOS/include" \
+   --with-libvlc-LIBS="-L/Applications/VLC.app/Contents/MacOS/lib -lvlc"
 ~~~
 
 
