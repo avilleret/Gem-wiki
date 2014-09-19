@@ -114,6 +114,29 @@ $ ./configure --with-pd=/Applications/Pd-0.45-4-64bit.app/Contents/Resources/
 
 Since this should become a 64bit build, omit the `--enable-fat-binary` flag.
 
+#### Disabling specific frameworks
+
+Apple has a rather aggressive strategy of deprecating and removing components from their system
+(e.g. compared to how Microsoft deals with backward compatibility).
+
+The *Carbon* framework has been deprecated in OSX-10.8.
+
+The *QuickTime* framework has been deprecated in OSX-10.5 and is not available at all on 64bit platforms.
+It has been replaced by the *QTKit* framework, which has been deprecated in OSX-10.7 in favour of the
+*AV Foundation* framework.
+
+While Gem tries to dynamically check whether a given framework is present/usable on your system,
+it unfortunately does not a very good job.
+Luckily you can help the build process, by manually disabling frameworks that you know are not useable
+on your system (or that you don't want to use for some other reason)
+
+When building for 64bit (or when using a newer OSX), you are strongly advised to disable both the
+*QuickTime* and the *Carbon* framework, by passing the following flags to `configure`:
+
+~~~~bash
+   --without-QuickTime-framework --without-Carbon-framework
+~~~~
+
 ### Build
 
 Then build with:
