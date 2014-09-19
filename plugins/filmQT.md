@@ -14,3 +14,7 @@ The W32 version might still be available and usable though.
 # Status
 
 Only works on a limited (and diminishing) number of systems (W32, OSX<10.9, 32bit mode).
+
+# Note 
+On Windows 7, after installing Quicktime player, I have to add QTCF.dll beside `pd` binary to enable this plugin.
+Maybe a reboot can fix this (and lots of other issues on Windows...) since QTCF.dll is already present in Quicktime folder.

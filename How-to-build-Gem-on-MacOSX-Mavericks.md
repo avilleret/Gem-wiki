@@ -122,7 +122,8 @@ Then build with:
 $ make
 ~~~~
 
-
+Currently (2014/09/15), it's not possible to disable Quicktime plugins on Mac OS, so you might get error if you're building a 64bit binary.
+To ignore those errors and go ahead use : `make -k`
 
 ## enabling more plugins
 
