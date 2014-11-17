@@ -300,3 +300,22 @@ $
 ~~~
 
 You will *also* need to install [QuickTime for Windows](http://support.apple.com/kb/DL837) on the W32 machine, in order to use the plugins.
+
+<!--- mingw cannot use ATL/MFC, so this is void (but hopefully will change)
+### DirectShow
+
+- Install [Windows Driver Kit Version 7.1.0.](http://www.microsoft.com/download/en/details.aspx?id=11800)
+ - I only installed *Build Environments* (takes >1GB)
+
+ - extract intersting parts
+    `.../inc/atl71/`
+
+- Install [DXSDK](http://stevenhickson-code.googlecode.com/svn/trunk/blepo/external/Microsoft/DirectX)
+
+~~~bash
+$ svn co http://stevenhickson-code.googlecode.com/svn/trunk/blepo/external/Microsoft/DirectX ~/share/WIN/SDK/DirectX
+$ cd ~/share/WIN/SDK/DirectX
+$ mv DXSDK/Include/vfwmsgs.h DXSDK/Include/VFWMSGS.H
+~~~
+
+-->

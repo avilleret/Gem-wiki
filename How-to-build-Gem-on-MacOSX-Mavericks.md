@@ -114,6 +114,29 @@ $ ./configure --with-pd=/Applications/Pd-0.45-4-64bit.app/Contents/Resources/
 
 Since this should become a 64bit build, omit the `--enable-fat-binary` flag.
 
+#### Disabling specific frameworks
+
+Apple has a rather aggressive strategy of deprecating and removing components from their system
+(e.g. compared to how Microsoft deals with backward compatibility).
+
+The *Carbon* framework has been deprecated in OSX-10.8.
+
+The *QuickTime* framework has been deprecated in OSX-10.5 and is not available at all on 64bit platforms.
+It has been replaced by the *QTKit* framework, which has been deprecated in OSX-10.7 in favour of the
+*AV Foundation* framework.
+
+While Gem tries to dynamically check whether a given framework is present/usable on your system,
+it unfortunately does not a very good job.
+Luckily you can help the build process, by manually disabling frameworks that you know are not useable
+on your system (or that you don't want to use for some other reason)
+
+When building for 64bit (or when using a newer OSX), you are strongly advised to disable both the
+*QuickTime* and the *Carbon* framework, by passing the following flags to `configure`:
+
+~~~~bash
+   --without-QuickTime-framework --without-Carbon-framework
+~~~~
+
 ### Build
 
 Then build with:
@@ -121,9 +144,6 @@ Then build with:
 ~~~~bash
 $ make
 ~~~~
-
-Currently (2014/09/15), it's not possible to disable Quicktime plugins on Mac OS, so you might get error if you're building a 64bit binary.
-To ignore those errors and go ahead use : `make -k`
 
 ## enabling more plugins
 
@@ -133,11 +153,11 @@ Enabling plugins needs to happen right before *compiling* Gem (or the respective
 
 Get [VLC](http://videolan.org) and install it (I assume it is installed into `/Applications/VLC.app`).
 
-Unfortunately, VLC is not automatically detected, so you have to tell configure about it, by exporting the following environment-variables before running `./configure`:
+Unfortunately, VLC is not automatically detected, so you have to tell `configure` about it, by adding the following flags when running `./configure`:
 
 ~~~bash
-export PKG_LIBVLC_CFLAGS="-I/Applications/VLC.app/Contents/MacOS/include"
-export PKG_LIBVLC_LIBS="-L/Applications/VLC.app/Contents/MacOS/lib -lvlc"
+   --with-libvlc-CFLAGS="-I/Applications/VLC.app/Contents/MacOS/include" \
+   --with-libvlc-LIBS="-L/Applications/VLC.app/Contents/MacOS/lib -lvlc"
 ~~~
 
 

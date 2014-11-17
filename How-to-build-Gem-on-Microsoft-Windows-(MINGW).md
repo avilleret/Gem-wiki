@@ -139,13 +139,13 @@ Next we need to run `configure` in order to detect all installed libraries and s
 ~~~bash
 $ ./configure                 \
    --with-pd=/c/programme/pd  \
-   PKG_FTGL_CFLAGS="-I/usr/local/include $(freetype-config --cflags)"  \
-   PKG_FTGL_LIBS="-L/usr/local/lib -lftgl"
+   --with-ftgl-CFLAGS="-I/usr/local/include $(freetype-config --cflags)"  \
+   --with-ftgl-LIBS="-L/usr/local/lib -lftgl"
 ~~~
 
 The first option (`--with-pd=`) tells `configure` where to find Pd.
 
-The `PKG_FTGL_...` variables tell the build-process how to find and use the font-rendering libraries.
+The `--with-ftgl-...` flags tell the build-process how to find and use the font-rendering libraries.
 
 ### Build
 
@@ -219,8 +219,8 @@ by appending the following variables when calling `./configure`:
 ~~~bash
 $ configure \
 # other flags go here...
-	PKG_LIBVLC_CFLAGS="-I/c/Programme/VideoLAN/VLC/sdk/include" \
-	PKG_LIBVLC_LIBS="-L/c/Programme/VideoLAN/VLC/sdk/lib -lvlc"
+	--with-libvlc-CFLAGS="-I/c/Programme/VideoLAN/VLC/sdk/include" \
+	--with-libvlc-LIBS="-L/c/Programme/VideoLAN/VLC/sdk/lib -lvlc"
 ~~~
 
 Finally copy the files `libvlc.dll` and `libvlccore.dll` from `C:\Programme\VideoLAN\VLC` next to Gem.

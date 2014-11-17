@@ -82,10 +82,55 @@ whereas conflicts in Pd-patches are usually impossible to resolve (but for the m
 Do *not* add binary data to the git repository (without a consensus on gem-dev first).
 Not even temporarily!
 
+### git commit messages
+Keep in mind, that a commit message should make sense both as a message in
+a "standalone history" and together with the actual changes.
+
+Thus, the commit messages should describe the reason for the commit,
+rather than it's content.
+
+E.g. it's BAD style if a commit message says
+
+> changed 'char*' to std::string
+
+as it doesn't reveal anything new that cannot be seen when looking at the differences
+this commit introduces (where it's easy to see that the commit
+replaces all occurences of 'char*' with 'std::string'.
+
+Similarily, do not enumerate which files have been changed.
+This is BAD:
+
+> fixed foo.cpp
+
+Also the commit message should be understandable without knowing too much context:
+
+> Closes #42
+
+probably indicates that it closes bug#42, but who does the enumeration?
+Gem uses multiple issue trackees
+(e.g. Github (one tracker for each forked repository!),
+sourceforge (separate trackers for bugs, feature requests,...)
+my personal todo lists),
+it should be clear which one you are referring to.
+
+A *GOOD* commit message should consist of a terse subject (~50 characters), and
+(optionally) a blank line followed by a paragraph explaining in more detail what
+the patch does.
+
+A proper commit message might look like:
+> Fixed memory leak when foo::setName() exits early
+>
+> Thanks to C++ types, we do not have to worry about the memory being freed
+> when the function exits early.
+> Closes https://github.com/umlaeute/Gem/issues/666
+> also
+> Closes https://sourceforge.net/projects/pd-gem/bugs/42
+
 ### git branching
 Try to avoid forking from branches other than master.
 Esp. avoid branches on top of branches.
 Before committing a pull request, make sure that your branch applies clean to current master.
+
 
 
 ## Workflows
