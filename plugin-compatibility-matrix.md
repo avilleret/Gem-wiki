@@ -55,7 +55,7 @@ note: currently all model-loading plugins are broken (at least for multicontext 
 |  [videoAVT](videoAVT)            | ?OK? (current??)     | n/a             | ??               | build and load but no device to test|
 |  [videoDarwin](videoDarwin)      | n/a                  | ??              | n/a              | n/a              |
 |  [videoDC1394](videoDC1394)      | OK                   | ??              | ??               | ??               |
-|  [videoDS](videoDS)              | n/a                  | n/a             | ??               | ??               |
+|  [videoDS](videoDS)              | n/a                  | n/a             | ??               | rework in progress|
 |  [videoDV4L](videoDV4L)          | OK                   | n/a             | n/a              | n/a              |
 |  [videoHALCON](videoHALCON)      | ?OK? (current??)     | ??              | OK?              | build and load but no device to test|
 |  [videoOptiTrack](videoOptiTrack)| n/a                  | ??              | OK               | build and load but no device to test|
@@ -63,7 +63,7 @@ note: currently all model-loading plugins are broken (at least for multicontext 
 |  [videoQTKit](videoQTKit)        | n/a                  | ??              | n/a              | n/a              |
 |  [videoSGI](videoSGI)            | n/a                  | n/a             | ??               | ??               |
 |  [videoTEST](videoTEST)¹         | OK                   | OK              | OK               | OK               |
-|  [videoUNICAP](videoUNICAP)      | OK                   | ??              | ??               | ??               |
+|  [videoUNICAP](videoUNICAP)      | OK                   | ??              | ??               | not supported ?  |
 |  [videoV4L](videoV4L)            | OK (deprecated)      | n/a             | n/a              | n/a              |
 |  [videoV4L2](videoV4L2)          | OK                   | n/a             | n/a              | n/a              |
 |  [videoVFW](videoVFW)            | n/a                  | n/a             | ??               | build and load but can't test|

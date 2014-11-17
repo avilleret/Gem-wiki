@@ -160,6 +160,12 @@ Unfortunately, VLC is not automatically detected, so you have to tell `configure
    --with-libvlc-LIBS="-L/Applications/VLC.app/Contents/MacOS/lib -lvlc"
 ~~~
 
+After building, you have to symlink `libvlc` besides `gem_videoVLC.dylib` with : 
+
+~~~~
+mkdir lib
+ln -s /Applications/VLC.app/Contents/MacOS/lib/libvlc.5.dylib lib/libvlc.5.dylib
+~~~~
 
 ### GMERLIN - opening films
 [gmerlin](http://gmerlin.sourceforge.net) is a generic media decoding library, that uses - among other libraries - [ffmpeg](http://ffmpeg.org).
