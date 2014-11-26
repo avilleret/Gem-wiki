@@ -75,6 +75,13 @@ The following also installs dependencies (like Freetype):
 $ brew install imagemagick ftgl
 ~~~~
 
+Note that some users have issue when building with FTGL support (see issue #28).
+They use successfully the following command line as a workaround :
+
+~~~~
+make CPPFLAGS=$(pkg-config --cflags freetype2)
+~~~~
+
 #### Output
 Mac OS X comes with an OpenGL framework but you can enable other outputs by adding some libraries:
 
